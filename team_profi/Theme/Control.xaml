@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--ПОКА НЕ РАБОТАЕТ, ВЕРНУТЬСЯ ПОХЖЕ И НАСТРОИТЬ-->
+    <Style TargetType="Control">
+        <Setter Property="FontFamily" Value="fonts\#Dosis"/>
+    </Style>
+</ResourceDictionary>
