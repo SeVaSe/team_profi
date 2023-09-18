@@ -36,12 +36,12 @@
         </Grid>
 
         <!--ИНФОРМАЦИЯ СВЕРХУ ПОВЕРХ КНОПОК-->
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"
                    Grid.Row="1" TextWrapping="Wrap" 
-                   Height="105" Width="760"
+                   Height="88" Width="760"
                    Text="какая-то информация на несколько строчек, пока не придумали"  
                    FontWeight="Medium"
-                   Style="{StaticResource ModernTextBlock}"/>
+                   Style="{StaticResource ModernTextBlock}" Margin="0,37,0,0"/>
 
 
 

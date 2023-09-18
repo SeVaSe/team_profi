@@ -83,10 +83,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainPages\SignUp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Theme\Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,9 +121,6 @@
     </Compile>
     <Compile Include="Pages\MainPages\SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MainPages\SignUp.xaml.cs">
-      <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

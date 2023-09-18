@@ -11,8 +11,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="135*"/>
-            <RowDefinition Height="215*"/>
-            <RowDefinition Height="135*"/>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="169*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -26,40 +26,40 @@
 
             <Label Content="ПОЧТА"
                    HorizontalAlignment="Left" 
-                   VerticalAlignment="Center"
-                   Margin="73,0,0,0"
-                   Style="{StaticResource ModernLabelText}" Height="43" Width="108"/>
+                   VerticalAlignment="Top"
+                   Margin="73,42,0,0"
+                   Style="{StaticResource ModernLabelText}" Height="42" Width="108"/>
             <Label Content="ПАРОЛЬ" HorizontalAlignment="Left" 
-                   VerticalAlignment="Center" 
-                   Margin="73,0,0,0" Grid.Row="1"  
+                   VerticalAlignment="Top" 
+                   Margin="73,18,0,0" Grid.Row="1"  
                    Style="{StaticResource ModernLabelText}" Height="43" Width="108"/>
             <!--Почта-->
             <TextBox 
-                     HorizontalAlignment="Left" VerticalAlignment="Center" Width="506"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Width="506"
                      TextWrapping="Wrap" Height="58"
-                     Style="{StaticResource ModernTextBox}" Grid.Column="1"/>
+                     Style="{StaticResource ModernTextBox}" Grid.Column="1" Margin="0,34,0,0" Grid.RowSpan="2"/>
             <!--Пароль-->
             <TextBox 
-                     HorizontalAlignment="Left" VerticalAlignment="Center" Width="506"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Width="506"
                      TextWrapping="Wrap" Height="58" Grid.Row="1"
-                     Style="{StaticResource ModernTextBox}" Grid.Column="1"/>
+                     Style="{StaticResource ModernTextBox}" Grid.Column="1" Margin="0,10,0,0"/>
 
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="16*"/>
-                <ColumnDefinition Width="16*"/>
-                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="389*"/>
+                <ColumnDefinition Width="304*"/>
+                <ColumnDefinition Width="87*"/>
             </Grid.ColumnDefinitions>
 
             <Button Content="Забыли пароль?" 
                     HorizontalAlignment="Left" VerticalAlignment="Top"
-                    Margin="124,0,0,0" 
+                    Margin="201,0,0,0" 
                     Height="40" Width="156"
                     Style="{StaticResource ModernButtonsForgotPasw}"/>
             <Button Grid.Column="1" Content="ВОЙТИ" 
                     HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="176,0,0,0" Height="46" Width="144"
+                    Margin="160,0,0,0" Height="46" Width="144"
                     Style="{StaticResource ModernButtonSignIn}"/>
         </Grid>
         <Grid>
@@ -69,7 +69,7 @@
                    FontWeight="ExtraBold"
                    FontSize="40"
                    Foreground="#003cff"
-                   Width="172" Height="62" Margin="258,78,0,0"
+                   Width="172" Height="62" Margin="335,78,0,0"
                    Style="{StaticResource ModernLabelText}"/>
         </Grid>
 
