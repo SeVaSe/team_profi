@@ -8,6 +8,7 @@
         Style="{StaticResource ModernWindowStyle}" 
         WindowStartupLocation="CenterScreen"
         Title="Главное меню">
+    
     <!--ОСНОВНОЙ ФОН-->
     <Border Background="White" CornerRadius="25,25,20,20">
         <Grid>
