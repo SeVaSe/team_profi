@@ -1,0 +1,72 @@
+﻿<Page x:Class="team_profi.Pages.MainPages.SignUp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:team_profi.Pages.MainPages"
+      Title="SignUp" Width="900" Height="690">
+
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="600*"/>
+            <RowDefinition Height="90*"/>
+
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="285*"/>
+                <ColumnDefinition Width="514*"/>
+                <ColumnDefinition Width="101*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+                <RowDefinition Height="66.6*"/>
+            </Grid.RowDefinitions>
+            <!--LABEL-->
+            <Label Content="РЕГИСТРАЦИЯ" Style="{StaticResource ModernLabelText}" FontWeight="ExtraBold" FontSize="35"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="284" Height="55" Margin="30,0,0,0" Grid.Column="1"/>
+            <Label Content="ПОЧТА" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0" />
+            <Label Content="ПАРОЛЬ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0" />
+            <Label Content="ФАМИЛИЯ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0"/>
+            <Label Content="ИМЯ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0"/>
+            <Label Content="ОТЧЕСТВО" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0"/>
+            <Label Content="ДАТА РОЖДЕНИЯ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0"/>
+            <Label Content="РОЛЬ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0"/>
+            <Label Content="УЧЕБНОЕ ЗАВ." Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Center" Height="40" Width="222" Margin="63,0,0,0"/>
+            <TextBox Grid.Column="1" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="66"/>
+            <TextBox Grid.Column="1" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="67"/>
+            <TextBox Grid.Column="1" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="67"/>
+            <TextBox Grid.Column="1" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="66"/>
+            <TextBox Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="67" Grid.Column="1"/>
+            <TextBox Grid.Column="1" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="66"/>
+            <TextBox Grid.Column="1" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Center" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Center" Width="514" Height="67"/>
+            <Grid Grid.Row="6" Margin="0,0,0,66" Grid.RowSpan="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="120*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="1" Style="{StaticResource ModernTextDay}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="101" Height="67" Margin="10,0,0,0"/>
+                <TextBox Grid.Column="2" Style="{StaticResource ModernTextMou}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="102" Height="67"/>
+                <TextBox Grid.Column="3" Style="{StaticResource ModernTextYea}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="67"/>
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="133*"/>
+                <ColumnDefinition Width="92*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+
+    </Grid>
+</Page>

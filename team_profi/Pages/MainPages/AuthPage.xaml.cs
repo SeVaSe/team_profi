@@ -37,7 +37,7 @@ namespace team_profi.Pages.MainPages
         // зарегаться
         private void SignUp_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new SignUo());
+            NavigationService?.Navigate(new SignUp());
         }
     }
 }

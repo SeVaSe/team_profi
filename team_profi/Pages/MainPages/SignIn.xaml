@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:team_profi.Pages.MainPages"
       mc:Ignorable="d" 
-      Width="780" Height="485"
+      Width="800" Height="700"
       Title="Вход">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="135*"/>
-            <RowDefinition Height="181*"/>
-            <RowDefinition Height="169*"/>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="174*"/>
+            <RowDefinition Height="331*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -59,7 +59,7 @@
                     Style="{StaticResource ModernButtonsForgotPasw}"/>
             <Button Grid.Column="1" Content="ВОЙТИ" 
                     HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="160,0,0,0" Height="46" Width="144"
+                    Margin="154,0,0,0" Height="46" Width="144"
                     Style="{StaticResource ModernButtonSignIn}"/>
         </Grid>
         <Grid>
@@ -69,7 +69,7 @@
                    FontWeight="ExtraBold"
                    FontSize="40"
                    Foreground="#003cff"
-                   Width="172" Height="62" Margin="335,78,0,0"
+                   Width="172" Height="62" Margin="335,133,0,0"
                    Style="{StaticResource ModernLabelText}"/>
         </Grid>
 
