@@ -24,5 +24,52 @@ namespace team_profi.Pages.MainPages
         {
             InitializeComponent();
         }
+
+        private void SignIn_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new TeamProfiBDEntities())
+            {
+                var user = db.Users
+                    .AsNoTracking()
+                    .FirstOrDefault(u => u.Login == TxtBoxGmail.Text);
+
+                if (user == null)
+                {
+                    MessageBox.Show("Такого пользователя не существует!", "Не существующий пользователь", MessageBoxButton.OK, MessageBoxImage.Error);
+                    TxtBoxGmail.Clear();
+                    TxtBoxPasw.Clear();
+                }
+                else if (TxtBoxPasw.Text.Length >= 6)
+                {
+                    if (user.Password != TxtBoxPasw.Text)
+                    {
+                        MessageBox.Show($"Пароль указан не верно {user.Password}", "Ошибка пароля", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        TxtBoxPasw.Clear();
+                    }
+                    else
+                    {
+                        switch (user.Role)
+                        {
+                            case "admin":
+                                MessageBox.Show("ADMIN");
+                                break;
+                            case "user":
+                                MessageBox.Show("USER");
+                                break;
+                            case "teach":
+                                MessageBox.Show("TEACH");
+                                break;
+                        }
+                        TxtBoxGmail.Clear();
+                        TxtBoxPasw.Clear();
+                    }
+                }
+                else if (TxtBoxPasw.Text.Length < 6)
+                {
+                    MessageBox.Show("Вы указали маленький пароль", "Маленький пароль", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    TxtBoxPasw.Clear();
+                }
+            }
+        }
     }
 }

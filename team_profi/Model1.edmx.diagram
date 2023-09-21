@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be090ee405434eeeaa0c1a59311ec0f6" Name="Diagram1">
+        <EntityTypeShape EntityType="TeamProfiBDModel.Answers" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.Assignments" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.Grades" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.MediaFiles" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.StudentMessages" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.StudentRatings" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamProfiBDModel.Users" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_Answers_Assignments" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_Answers_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_Grades_Answers" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_Assignments_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_Grades_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_MediaFiles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_StudentMessages_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamProfiBDModel.FK_StudentRatings_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
