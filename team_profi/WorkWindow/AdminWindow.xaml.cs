@@ -35,10 +35,28 @@ namespace team_profi.WorkWindow
 
 
         
-
+        // Главная Админа
         private void BtnMain_Click(object sender, RoutedEventArgs e)
         {
-            //ProfiMain.Navigate(new MainAminPage());
+            ProfiMain.Navigate(new MainAminPage());
+        }
+
+        // Рейтинг Админа
+        private void BtnRaiting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Задачи Админа
+        private void BtnTasks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Ответы Админа
+        private void BtnAnswer_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

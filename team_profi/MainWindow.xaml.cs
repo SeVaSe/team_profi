@@ -47,40 +47,20 @@ namespace team_profi
         }
 
 
+        // КНОПКИ ПРЕДОТВРАЩАЮТ ПЕРЕХОД НЕ АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ ПО РАЗДЕЛАМ
+        private void BtnRaiting_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы не вошли в аккаунт, ввойдите и после переходите в нужные разделы!", "Ошибка не авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
+        private void BtnTasks_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы не вошли в аккаунт, ввойдите и после переходите в нужные разделы!", "Ошибка не авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void BtnAnswer_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы не вошли в аккаунт, ввойдите и после переходите в нужные разделы!", "Ошибка не авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
