@@ -167,8 +167,9 @@
         <!-- Белый цвет текста по умолчанию -->
         <Setter Property="Foreground" Value="White"/>
         <!-- Цвет рамки по умолчанию -->
-        <Setter Property="BorderBrush" Value="#003cff"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <!--<Setter Property="BorderBrush" Value="#003cff"/
+        <Setter Property="BorderThickness" Value="1"/-->
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Cursor" Value="Hand"/>

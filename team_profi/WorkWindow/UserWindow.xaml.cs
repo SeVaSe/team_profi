@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,21 +11,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using team_profi.Pages.AdminPages;
-using team_profi.Pages.MainPages;
 using team_profi.Classes;
-using System.Text.RegularExpressions;
+using team_profi.Pages.AdminPages;
 
-namespace team_profi
+namespace team_profi.WorkWindow
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для UserWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserWindow : Window
     {
-        public MainWindow()
+        public UserWindow()
         {
             InitializeComponent();
             ControlClass cntrlCl = new ControlClass(this);
@@ -33,54 +31,12 @@ namespace team_profi
             Btn_perezapusk.Click += (sender, e) => cntrlCl.perezapusk_control(new MainWindow());
             br_up.MouseLeftButtonDown += cntrlCl.Window_MouseLeftButtonDown;
             br_up.MouseMove += cntrlCl.Window_MouseMove;
-
-
-
         }
-        
 
-       
 
         private void BtnMain_Click(object sender, RoutedEventArgs e)
         {
-            ProfiMain.Navigate(new AuthPage());     
+            //ProfiMain.Navigate(new MainAminPage());
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

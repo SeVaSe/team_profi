@@ -36,7 +36,8 @@
                 <Button Content="ГЛАВНАЯ" 
                         Name="BtnMain"
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Style="{StaticResource ModernButtonsMenu}" Height="50" Width="122" Click="BtnMain_Click"/>
+                        Style="{StaticResource ModernButtonsMenu}" Height="50" Width="122" Click="BtnMain_Click"
+                        />
                 <!--рейтинг-->
                 <Button Content="РЕЙТИНГ" 
                         HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -63,8 +64,7 @@
 
             <!--ВЕРХНЯЯ ПАНЕЛЬ УПРАВЛЕНИЯ-->
             <Border  Background="#f0f4ff" BorderThickness="0" CornerRadius="20, 20, 0, 0" Grid.ColumnSpan="3"
-                     MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        MouseMove="Window_MouseMove" Cursor="SizeAll" Height="40" VerticalAlignment="Top"  >
+                      Name="br_up" Cursor="SizeAll" Height="40" VerticalAlignment="Top"  >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="90*"/>
@@ -79,12 +79,13 @@
                             FontFamily="Fonts/#Dosis" 
                             FontSize="17" 
                             Cursor="Hand"
+                            Name="Btn_Close"
                             Grid.Column="4"
                             Background="Transparent"
                             Foreground="#828aa1"
                             ToolTip="Закрыть"
                             Style="{StaticResource ButtonClearTheme}"
-                            BorderThickness="0" Click="Exit_Click"
+                            BorderThickness="0" 
                             HorizontalAlignment="Left"
                             FontWeight="Bold"
                             VerticalAlignment="Center" Margin="110,0,0,0" RenderTransformOrigin="0.494,0.547" Height="20" Width="24">
@@ -94,6 +95,7 @@
                     <Button Content="━"
                             FontFamily="Fonts/#Dosis" 
                             FontSize="40" 
+                            Name="Btn_minim"
                             Grid.Column="4"
                             Cursor="Hand"
                             Background="Transparent"
@@ -101,7 +103,7 @@
                             FontWeight="Bold"
                             ToolTip="Свернуть"
                             Style="{StaticResource ButtonClearTheme}" 
-                            BorderThickness="0" Click="Svernut_Click" 
+                            BorderThickness="0" 
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top" Margin="68,-6,0,0" Width="31" Height="46"/>
 
@@ -110,13 +112,14 @@
                             FontFamily="Fonts/#Dosis" 
                             FontSize="30" 
                             Grid.Column="4"
+                            Name="Btn_perezapusk"
                             Cursor="Hand"
                             Background="Transparent"
                             Foreground="#828aa1"
                             ToolTip="Перезагрузить"
                             FontWeight="Bold"
                             Style="{StaticResource ButtonClearTheme}" 
-                            BorderThickness="0" Click="Perezapusk_Click" 
+                            BorderThickness="0" 
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top" Margin="29,2,0,0" Width="31" Height="30"/>
                 </Grid>

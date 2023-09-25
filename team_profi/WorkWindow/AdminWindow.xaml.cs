@@ -10,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Classes;
 using team_profi.Pages.AdminPages;
 using team_profi.Pages.MainPages;
-using team_profi.Classes;
-using System.Text.RegularExpressions;
 
-namespace team_profi
+namespace team_profi.WorkWindow
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AdminWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminWindow : Window
     {
-        public MainWindow()
+        public AdminWindow()
         {
             InitializeComponent();
             ControlClass cntrlCl = new ControlClass(this);
@@ -33,54 +31,14 @@ namespace team_profi
             Btn_perezapusk.Click += (sender, e) => cntrlCl.perezapusk_control(new MainWindow());
             br_up.MouseLeftButtonDown += cntrlCl.Window_MouseLeftButtonDown;
             br_up.MouseMove += cntrlCl.Window_MouseMove;
-
-
-
         }
-        
 
-       
+
+        
 
         private void BtnMain_Click(object sender, RoutedEventArgs e)
         {
-            ProfiMain.Navigate(new AuthPage());     
+            //ProfiMain.Navigate(new MainAminPage());
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

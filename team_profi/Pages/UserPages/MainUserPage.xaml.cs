@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace team_profi.Pages.MainPages
+namespace team_profi.Pages.UserPages
 {
     /// <summary>
-    /// Логика взаимодействия для SignUp.xaml
+    /// Логика взаимодействия для MainUserPage.xaml
     /// </summary>
-    public partial class SignUp : Page
+    public partial class MainUserPage : Page
     {
-        public SignUp()
+        public MainUserPage()
         {
             InitializeComponent();
-        }
-
-        private void SignUp_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

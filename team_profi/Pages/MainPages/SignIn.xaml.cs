@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Classes;
+using team_profi.Pages.AdminPages;
+using team_profi.Pages.UserPages;
+using team_profi.WorkWindow;
 
 namespace team_profi.Pages.MainPages
 {
@@ -25,8 +29,11 @@ namespace team_profi.Pages.MainPages
             InitializeComponent();
         }
 
+
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow main = new MainWindow();
+
             using (var db = new TeamProfiBDEntities())
             {
                 var user = db.Users
@@ -51,13 +58,12 @@ namespace team_profi.Pages.MainPages
                         switch (user.Role)
                         {
                             case "admin":
-                                MessageBox.Show("ADMIN");
+                                WindowOpenClass.OpenWindow<AdminWindow>();
+                                Application.Current.MainWindow.Close();
                                 break;
                             case "user":
-                                MessageBox.Show("USER");
-                                break;
-                            case "teach":
-                                MessageBox.Show("TEACH");
+                                WindowOpenClass.OpenWindow<UserWindow>();
+                                Application.Current.MainWindow.Close();
                                 break;
                         }
                         TxtBoxGmail.Clear();
