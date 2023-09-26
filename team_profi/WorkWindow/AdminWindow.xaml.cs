@@ -44,19 +44,19 @@ namespace team_profi.WorkWindow
         // Рейтинг Админа
         private void BtnRaiting_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfiMain.Navigate(new RaitingAdminPage());
         }
 
         // Задачи Админа
         private void BtnTasks_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfiMain.Navigate(new TasksAdminPage());
         }
 
         // Ответы Админа
         private void BtnAnswer_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfiMain.Navigate(new AnswerAdminPage());
         }
     }
 }

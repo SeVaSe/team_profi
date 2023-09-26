@@ -15,4 +15,19 @@ namespace team_profi.Classes
             wind.Show();
         }
     }
+
+    public class LoginInfoAll
+    {
+        private static string login = "net";
+
+        public static void ShowLogin(string log)
+        {
+            login = log;
+        }
+
+        public static string GetLogin()
+        {
+            return login;
+        }
+    }
 }

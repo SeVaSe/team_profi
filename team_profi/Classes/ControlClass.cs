@@ -26,6 +26,7 @@ namespace team_profi.Classes
             {
                 case MessageBoxResult.Yes:
                     _wind.Close();
+                    Application.Current.Shutdown();
                     break;
                 case MessageBoxResult.No:
                     break;

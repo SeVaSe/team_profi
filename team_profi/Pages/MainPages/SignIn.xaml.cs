@@ -59,6 +59,7 @@ namespace team_profi.Pages.MainPages
                         {
                             case "admin":
                                 WindowOpenClass.OpenWindow<AdminWindow>();
+                                LoginInfoAll.ShowLogin(user.Login);
                                 Application.Current.MainWindow.Close();
                                 break;
                             case "user":
