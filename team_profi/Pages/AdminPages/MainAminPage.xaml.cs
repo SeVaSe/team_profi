@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using team_profi.Classes;
+using team_profi.WorkWindow;
 
 namespace team_profi.Pages.AdminPages
 {
@@ -23,14 +24,52 @@ namespace team_profi.Pages.AdminPages
     {
         public MainAminPage()
         {
-            InitializeComponent(); 
-            this.Loaded += MainWindow_Loaded;
+            InitializeComponent();
+            this.Loaded += TitleNameUser;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void TitleNameUser(object sender, RoutedEventArgs e)
         {
-            // Загрузка информации в TextBlock при загрузке окна.
-            tttt.Text = LoginInfoAll.GetLogin();
+            // Получаем логин из LoginInfoAll
+            string login = LoginInfoAll.GetLogin();
+
+            using (var db = new TeamProfiBDEntities())
+            {
+                var users = db.Users
+                    .AsNoTracking()
+                    .Where(u => u.Login == login)
+                    .ToList(); // Получаем список всех пользователей с указанным логином
+
+                if (users.Any())
+                {
+                    foreach (var user in users)
+                    {
+                        TxtBl_NameUser.Text += $"Добро пожаловать {user.LastName} {user.FirstName} {user.Otchestvo}!\n";
+                        
+                    }
+                }
+                else
+                {
+                    TxtBl_NameUser.Text = "Чет за херня ОПЯТЬ БАЗА БЛЯТЬ УПАЛА";
+                }
+            }
+        }
+
+        private void BtnExitAcc_Click(object sender, RoutedEventArgs e)
+        {
+            LoginInfoAll.ShowLogin("net");
+
+            AdminWindow main = Window.GetWindow(this) as AdminWindow;
+
+            if (main != null)
+            {
+                
+                WindowOpenClass.OpenWindow<MainWindow>();
+                TxtBl_NameUser.Text = "";
+                TxtBl_OsnInfo.Text = "";
+                main.Close();
+            }
+
         }
     }
 }

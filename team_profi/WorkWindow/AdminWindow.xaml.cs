@@ -58,5 +58,8 @@ namespace team_profi.WorkWindow
         {
             ProfiMain.Navigate(new AnswerAdminPage());
         }
+
+
+       
     }
 }

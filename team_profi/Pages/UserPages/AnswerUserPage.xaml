@@ -1,0 +1,15 @@
+﻿<Page x:Class="team_profi.Pages.UserPages.AnswerUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:team_profi.Pages.UserPages"
+      mc:Ignorable="d" 
+      Width="800" Height="700"
+      Title="AnswerUserPage">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" FontSize="40" Margin="274,217,0,0" TextWrapping="Wrap" Text="Пользователь ответы" VerticalAlignment="Top" Height="163" Width="337"/>
+
+    </Grid>
+</Page>

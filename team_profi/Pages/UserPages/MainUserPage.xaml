@@ -9,7 +9,45 @@
       Title="MainUserPage">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="40" Margin="274,217,0,0" TextWrapping="Wrap" Text="Пользователь" VerticalAlignment="Top" Height="99" Width="294"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="300*"/>
+            <RowDefinition Height="320*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="770*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" 
+                       Name="TxtBl_NameUser" Style="{StaticResource ModernTextBlock}" 
+                       TextWrapping="Wrap" VerticalAlignment="Center" 
+                       Height="60" Width="770"
+                       FontSize="30"
+                       />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="770*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TxtBl_OsnInfo"
+                        TextWrapping="Wrap"
+                        Style="{StaticResource ModernTextBlock}"
+                        Height="299"
+                        FontSize="20" Grid.Column="1"
+                       ><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="какой то текст, пока еще не понятно"/></TextBlock>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="Выйти"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Height="98" Width="250"
+                    Style="{StaticResource ModernButtonSignIn}" Click="BtnExitAcc_Click"/>
+        </Grid>
 
     </Grid>
 </Page>

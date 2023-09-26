@@ -99,8 +99,17 @@
     <Compile Include="Pages\AdminPages\TasksAdminPage.xaml.cs">
       <DependentUpon>TasksAdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserPages\AnswerUserPage.xaml.cs">
+      <DependentUpon>AnswerUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserPages\MainUserPage.xaml.cs">
       <DependentUpon>MainUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\RaitingUserPage.xaml.cs">
+      <DependentUpon>RaitingUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\TasksUserPage.xaml.cs">
+      <DependentUpon>TasksUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentMessages.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -164,7 +173,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UserPages\AnswerUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UserPages\MainUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\RaitingUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\TasksUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using team_profi.Classes;
 using team_profi.Pages.AdminPages;
+using team_profi.Pages.UserPages;
 
 namespace team_profi.WorkWindow
 {
@@ -36,7 +37,22 @@ namespace team_profi.WorkWindow
 
         private void BtnMain_Click(object sender, RoutedEventArgs e)
         {
-            //ProfiMain.Navigate(new MainAminPage());
+            ProfiMain.Navigate(new MainUserPage());
+        }
+
+        private void BtnRaiting_Click(object sender, RoutedEventArgs e)
+        {
+            ProfiMain.Navigate(new RaitingUserPage());
+        }
+
+        private void BtnTasks_Click(object sender, RoutedEventArgs e)
+        {
+            ProfiMain.Navigate(new TasksUserPage());
+        }
+
+        private void BtnAnswer_Click(object sender, RoutedEventArgs e)
+        {
+            ProfiMain.Navigate(new AnswerUserPage());
         }
     }
 }
