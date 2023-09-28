@@ -44,8 +44,7 @@ namespace team_profi.Pages.AdminPages
                 {
                     foreach (var user in users)
                     {
-                        TxtBl_NameUser.Text += $"Добро пожаловать {user.LastName} {user.FirstName} {user.Otchestvo}!\n";
-                        
+                        TxtBl_NameUser.Text += $"{user.LastName} {user.FirstName} {user.Otchestvo}\n";   
                     }
                 }
                 else
@@ -63,13 +62,11 @@ namespace team_profi.Pages.AdminPages
 
             if (main != null)
             {
-                
                 WindowOpenClass.OpenWindow<MainWindow>();
                 TxtBl_NameUser.Text = "";
-                TxtBl_OsnInfo.Text = "";
+                
                 main.Close();
             }
-
         }
     }
 }
