@@ -72,7 +72,11 @@ namespace team_profi.Pages.AdminPages
             {
                 WindowOpenClass.OpenWindow<MainWindow>();
                 TxtBl_NameUser.Text = "";
-                
+                TxtBl_Gmailtxt.Text = "";
+                TxtBl_DateYearstxt.Text = "";
+                TxtBl_TeachHousetxt.Text = "";
+                TxtBl_Roletxt.Text = "";
+
                 main.Close();
             }
         }

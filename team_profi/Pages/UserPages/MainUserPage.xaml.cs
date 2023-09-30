@@ -45,7 +45,11 @@ namespace team_profi.Pages.UserPages
                 {
                     foreach (var user in users)
                     {
-                        TxtBl_NameUser.Text += $"Добро пожаловать {user.LastName} {user.FirstName} {user.Otchestvo}!\n";
+                        TxtBl_NameUser.Text += $"{user.LastName} {user.FirstName} {user.Otchestvo}\n";
+                        TxtBl_Gmailtxt.Text = user.Login;
+                        TxtBl_DateYearstxt.Text = user.BirthYear;
+                        TxtBl_TeachHousetxt.Text = user.College;
+                        TxtBl_Roletxt.Text = user.Role;
                     }
                 }
                 else
@@ -66,7 +70,10 @@ namespace team_profi.Pages.UserPages
                 
                 WindowOpenClass.OpenWindow<MainWindow>();
                 TxtBl_NameUser.Text = "";
-                TxtBl_OsnInfo.Text = "";
+                TxtBl_Gmailtxt.Text = "";
+                TxtBl_DateYearstxt.Text = "";
+                TxtBl_TeachHousetxt.Text = "";
+                TxtBl_Roletxt.Text = "";
                 main.Close();
             }
 

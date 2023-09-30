@@ -10,9 +10,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80*"/>
-            <RowDefinition Height="300*"/>
-            <RowDefinition Height="320*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="400*"/>
+            <RowDefinition Height="170*"/>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -22,31 +22,43 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="1" HorizontalAlignment="Center" 
-                       Name="TxtBl_NameUser" Style="{StaticResource ModernTextBlock}" 
-                       TextWrapping="Wrap" VerticalAlignment="Center" 
-                       Height="60" Width="770"
-                       FontSize="30"
-                       />
+               Name="TxtBl_NameUser" Style="{StaticResource ModernTextBlock}" 
+               TextWrapping="Wrap" VerticalAlignment="Center" 
+               Height="110" Width="750"
+               Foreground="#1c73ff"
+               FontSize="40"
+               FontWeight="Bold"/>
         </Grid>
         <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
-                <ColumnDefinition Width="770*"/>
+                <ColumnDefinition Width="350*"/>
+                <ColumnDefinition Width="420*"/>
                 <ColumnDefinition Width="15*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="TxtBl_OsnInfo"
-                        TextWrapping="Wrap"
-                        Style="{StaticResource ModernTextBlock}"
-                        Height="299"
-                        FontSize="20" Grid.Column="1"
-                       ><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="какой то текст, пока еще не понятно"/></TextBlock>
+            <Label Grid.Column="1" Grid.Row="0" FontSize="30" Style="{StaticResource ModernLabelText}" HorizontalContentAlignment="Right" Content="ПОЧТА" HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Center" Height="85" Width="273"/>
+            <Label Grid.Column="1" Grid.Row="1" FontSize="30" Style="{StaticResource ModernLabelText}" HorizontalContentAlignment="Right" Content="ДАТА РОЖДЕНИЯ" HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Center" Height="85" Width="273"/>
+            <Label Grid.Column="1" Grid.Row="2" FontSize="30" Style="{StaticResource ModernLabelText}" HorizontalContentAlignment="Right" Content="УЧЕБНОЕ ЗАВ." HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Center" Height="85" Width="273"/>
+            <Label Grid.Column="1" Grid.Row="3" FontSize="30" Style="{StaticResource ModernLabelText}" Content="РОЛЬ" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="67,0,0,0" VerticalAlignment="Center" Height="85" Width="273"/>
+            <TextBlock Grid.Column="2" FontSize="30" Style="{StaticResource ModernTextBlock}" Name="TxtBl_Gmailtxt" HorizontalAlignment="Left" Foreground="#1c73ff" Margin="10,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Height="75" Width="386"/>
+            <TextBlock Grid.Column="2" FontSize="30" Style="{StaticResource ModernTextBlock}" Name="TxtBl_DateYearstxt" HorizontalAlignment="Left" Foreground="#1c73ff" Margin="10,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center"  Height="75" Width="386" Grid.Row="1"/>
+            <TextBlock Grid.Column="2" FontSize="30" Style="{StaticResource ModernTextBlock}" Name="TxtBl_TeachHousetxt" HorizontalAlignment="Left" Foreground="#1c73ff" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"  Height="75" Width="386" Grid.Row="2"/>
+            <TextBlock Grid.Column="2" FontSize="30" Style="{StaticResource ModernTextBlock}" Name="TxtBl_Roletxt" HorizontalAlignment="Left" Foreground="#1c73ff" Margin="10,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Height="75" Width="386" Grid.Row="3"/>
+
         </Grid>
         <Grid Grid.Row="2">
             <Button Content="Выйти"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" 
-                    Height="98" Width="250"
-                    Style="{StaticResource ModernButtonSignIn}" Click="BtnExitAcc_Click"/>
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Height="54" Width="171"
+            Style="{StaticResource ModernButtonSignIn}"
+            Click="BtnExitAcc_Click"/>
         </Grid>
 
     </Grid>
