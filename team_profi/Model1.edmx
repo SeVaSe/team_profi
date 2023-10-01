@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TeamProfiBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TeamProfiBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answers">
           <Key>
             <PropertyRef Name="AnswerID" />
@@ -84,6 +84,7 @@
           <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BirthYear" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="College" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoleUsers" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Answers_Assignments">
           <End Role="Assignments" Type="Self.Assignments" Multiplicity="1" />
@@ -223,8 +224,7 @@
             <End Role="StudentRatings" EntitySet="StudentRatings" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TeamProfiBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -323,6 +323,7 @@
           <NavigationProperty Name="MediaFiles" Relationship="Self.FK_MediaFiles_Users" FromRole="Users" ToRole="MediaFiles" />
           <NavigationProperty Name="StudentMessages" Relationship="Self.FK_StudentMessages_Users" FromRole="Users" ToRole="StudentMessages" />
           <NavigationProperty Name="StudentRatings" Relationship="Self.FK_StudentRatings_Users" FromRole="Users" ToRole="StudentRatings" />
+          <Property Name="RoleUsers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Answers_Assignments">
           <End Role="Assignments" Type="Self.Assignments" Multiplicity="1" />
@@ -544,6 +545,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TeamProfiBDModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="RoleUsers" ColumnName="RoleUsers" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

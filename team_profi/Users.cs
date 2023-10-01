@@ -34,6 +34,7 @@ namespace team_profi
         public string Role { get; set; }
         public string BirthYear { get; set; }
         public string College { get; set; }
+        public string RoleUsers { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Answers> Answers { get; set; }

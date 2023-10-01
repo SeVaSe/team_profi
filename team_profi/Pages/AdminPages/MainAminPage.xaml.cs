@@ -49,7 +49,7 @@ namespace team_profi.Pages.AdminPages
                         TxtBl_Gmailtxt.Text = user.Login;
                         TxtBl_DateYearstxt.Text = user.BirthYear;
                         TxtBl_TeachHousetxt.Text = user.College;
-                        TxtBl_Roletxt.Text = user.Role;
+                        TxtBl_Roletxt.Text = user.RoleUsers;
                     }
                     
                     

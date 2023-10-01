@@ -54,9 +54,9 @@
                     <ColumnDefinition Width="100*"/>
                     <ColumnDefinition Width="120*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="1" Style="{StaticResource ModernTextDay}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="101" Height="67" Margin="10,0,0,0"/>
-                <TextBox Grid.Column="2" Style="{StaticResource ModernTextMou}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="102" Height="67"/>
-                <TextBox Grid.Column="3" Style="{StaticResource ModernTextYea}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="67"/>
+                <TextBox Name="TxtBox_Birth1" Grid.Column="1" Style="{StaticResource ModernTextDay}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="101" Height="67" Margin="10,0,0,0"/>
+                <TextBox Name="TxtBox_Birth2" Grid.Column="2" Style="{StaticResource ModernTextMou}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="102" Height="67"/>
+                <TextBox Name="TxtBox_Birth3" Grid.Column="3" Style="{StaticResource ModernTextYea}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="67"/>
 
             </Grid>
         </Grid>
