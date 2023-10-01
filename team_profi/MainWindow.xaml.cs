@@ -34,7 +34,7 @@ namespace team_profi
             br_up.MouseLeftButtonDown += cntrlCl.Window_MouseLeftButtonDown;
             br_up.MouseMove += cntrlCl.Window_MouseMove;
 
-
+           
 
         }
         

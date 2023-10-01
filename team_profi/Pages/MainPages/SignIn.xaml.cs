@@ -32,7 +32,7 @@ namespace team_profi.Pages.MainPages
 
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            var mainWindow = Window.GetWindow(this) as MainWindow;
 
             using (var db = new TeamProfiBDEntities())
             {
@@ -60,16 +60,18 @@ namespace team_profi.Pages.MainPages
                             case "admin":
                                 WindowOpenClass.OpenWindow<AdminWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
-                                Application.Current.MainWindow.Close();
+
+                                mainWindow.Close();
                                 break;
                             case "user":
                                 WindowOpenClass.OpenWindow<UserWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
-                                Application.Current.MainWindow.Close();
+                                mainWindow.Close();
                                 break;
                         }
                         TxtBoxGmail.Clear();
                         TxtBoxPasw.Clear();
+                        
                     }
                 }
                 else if (TxtBoxPasw.Text.Length < 6)
@@ -78,6 +80,7 @@ namespace team_profi.Pages.MainPages
                     TxtBoxPasw.Clear();
                 }
             }
+            mainWindow.Close();
         }
     }
 }
