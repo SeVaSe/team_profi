@@ -8,8 +8,45 @@
       Width="800" Height="700"
       Title="RaitingAdminPage">
 
-    <Grid>
-        
+    <Grid x:Name="MainGrid">
+
+
+        <DataGrid Name="DataGridUser" AutoGenerateColumns="False" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
+          GridLinesVisibility="None" HeadersVisibility="None">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridRow">
+                                <Grid>
+                                    <TextBlock x:Name="NumberTextBlock"
+Style="{StaticResource ModernTextBlockNumRaiting}" 
+HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Padding="0,0,100,0"
+Loaded="NumberTextBlock_Loaded"/>
+                                    <Border Style="{StaticResource ModernBorderRaiting}" Margin="50,10,10,10">
+                                        <Grid>
+                                            <!-- Нумерация -->
+                                            
+
+                                            <!-- Здесь размещаем ФИО и общее количество баллов -->
+                                            <TextBlock Text="{Binding FirstName}" Style="{StaticResource ModernTextBlockRaiting}" HorizontalAlignment="Left" Margin="5" Padding="40,0,0,0"/>
+                                            <TextBlock Text="{Binding Login}" Style="{StaticResource ModernTextBlockRaiting}" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Role}" Style="{StaticResource ModernTextBlockPointsRaiting}" HorizontalAlignment="Right" Margin="5" Padding="0,0,40,0"/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                                
+
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+
+
 
     </Grid>
 </Page>

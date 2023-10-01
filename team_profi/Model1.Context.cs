@@ -15,11 +15,22 @@ namespace team_profi
     
     public partial class TeamProfiBDEntities : DbContext
     {
+        private static TeamProfiBDEntities _context;
+
         public TeamProfiBDEntities()
             : base("name=TeamProfiBDEntities")
         {
         }
-    
+
+        public static TeamProfiBDEntities GetEntities1()
+        {
+            if (_context == null)
+            {
+                _context = new TeamProfiBDEntities();
+            }
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

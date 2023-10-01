@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Theme\StylesTextBlock.xaml"/>
                 <ResourceDictionary Source="Theme\StylesLabel.xaml"/>
                 <ResourceDictionary Source="Theme\StylesTextBox.xaml"/>
+                <ResourceDictionary Source="Theme\StylesBorder.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         
