@@ -9,7 +9,55 @@
       Title="TasksAdminPage">
 
     <Grid>
-        <Label Content="ЗАДАЧИ АДМИН" FontSize="40" HorizontalAlignment="Left" Margin="241,200,0,0" VerticalAlignment="Top" Height="79" Width="348"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="550*"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <DataGrid Name="DataGridUser" AutoGenerateColumns="False" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
+  GridLinesVisibility="None" HeadersVisibility="None">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="DataGridRow">
+                                    <Grid Name="GridText">
+                                        <TextBlock x:Name="NumberTextBlock"
+                                        Style="{StaticResource ModernTextBlockNumRaiting}" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Padding="0,0,100,0"
+                                        Loaded="NumberTextBlock_Loaded"/>
+                                        <Border Style="{StaticResource ModernBorderRaiting}" Margin="50,10,10,10">
+                                            <Grid>
+                                                <!-- Нумерация -->
+
+
+                                                <!-- Здесь размещаем ФИО и общее количество баллов -->
+                                                <TextBlock Name="txtBl_Info" Style="{StaticResource ModernTextBlockRaiting}" HorizontalAlignment="Left" Margin="5" Padding="100,0,0,0"/>
+                                                <TextBlock Text="{Binding TotalPoints}" Style="{StaticResource ModernTextBlockPointsRaiting}" HorizontalAlignment="Right" Margin="5" Padding="0,0,40,0"/>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+
+
+
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="760*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="СОЗДАТЬ НОВОЕ ЗАДАНИЕ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71" Width="740" Grid.Column="1"
+                    Style="{StaticResource ModernButtonSignIn}"/>
+        </Grid>
+
+
 
     </Grid>
 </Page>
