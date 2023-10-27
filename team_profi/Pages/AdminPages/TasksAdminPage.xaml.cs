@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,53 @@ namespace team_profi.Pages.AdminPages
     /// </summary>
     public partial class TasksAdminPage : Page
     {
+        private ObservableCollection<Assignments> assignments;
+
         public TasksAdminPage()
         {
             InitializeComponent();
+
+            assignments = new ObservableCollection<Assignments>();
+
+            using (var db = new TeamProfiBDEntities())
+            {
+                var assignmentsFromDb = db.Assignments.ToList();
+                foreach (var assignment in assignmentsFromDb)
+                {
+                    assignments.Add(new Assignments
+                    {
+                        AssigID = assignment.AssigID,
+                        TeachID = assignment.TeachID,
+                        Topic = assignment.Topic.ToUpper(),
+                        TaskDescription = assignment.TaskDescription,
+                        CreationDate = assignment.CreationDate
+                    });
+                }
+
+                DataGridUser.ItemsSource = assignments;
+            }
+        }
+
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Получите задание, связанное с этим Border
+            if (sender is Border border && border.DataContext is Assignments assignment)
+            {
+                // Создайте новую страницу для отображения описания задания
+                DopPages.AssignmentDescriptionPage descriptionPage = new DopPages.AssignmentDescriptionPage(assignment);
+
+                // Откройте новое окно или место, где вы хотите отображать описание
+                // Например, используйте NavigationService для отображения страницы в окне навигации
+                NavigationService.Navigate(descriptionPage);
+            }
+        }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

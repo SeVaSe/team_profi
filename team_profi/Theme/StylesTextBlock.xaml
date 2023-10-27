@@ -38,4 +38,24 @@
         <Setter Property="FontFamily" Value="Res/fonts/#Dosis"/>
     </Style>
 
+    <!--текстБлок для задания (название)-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="ModernTextBlockTaskName">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Foreground" Value="#1c73ff"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Res/fonts/#Dosis"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="ExtraBold"/>
+    </Style>
+
+    <!--текстБлок для задания (дата)-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="ModernTextBlockTaskDate">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#1c73ff"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Res/fonts/#Dosis"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+    </Style>
+
 </ResourceDictionary>
