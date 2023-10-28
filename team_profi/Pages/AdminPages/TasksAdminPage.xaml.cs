@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Pages.DopPages;
 
 namespace team_profi.Pages.AdminPages
 {
@@ -63,7 +64,7 @@ namespace team_profi.Pages.AdminPages
 
         private void CreateNewTask_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AssigmentCreate());
         }
     }
 }
