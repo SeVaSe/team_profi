@@ -12,18 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using team_profi.Pages.AdminPages;
 using team_profi.Pages.UserPages;
 
 namespace team_profi.Pages.DopPages
 {
     /// <summary>
-    /// Логика взаимодействия для AssignmentDescriptionPage.xaml
+    /// Логика взаимодействия для AssigmentDescriptionUserPage.xaml
     /// </summary>
-    public partial class AssignmentDescriptionPage : Page
+    public partial class AssigmentDescriptionUserPage : Page
     {
         private Assignments _assignment;
-        public AssignmentDescriptionPage(Assignments assignment)
+        public AssigmentDescriptionUserPage(Assignments assignment)
         {
             InitializeComponent();
             _assignment = assignment;
@@ -34,7 +33,12 @@ namespace team_profi.Pages.DopPages
 
         private void BackOut_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new TasksAdminPage());
+            NavigationService.Navigate(new TasksUserPage());
+        }
+
+        private void ExecuteTask_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

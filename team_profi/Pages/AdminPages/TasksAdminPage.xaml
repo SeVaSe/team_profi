@@ -46,7 +46,7 @@
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
             <Button Content="СОЗДАТЬ НОВОЕ ЗАДАНИЕ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="88" Width="740" Grid.Column="1"
-                    Style="{StaticResource ModernButtonNewCreateTask}" Click="Button_Click"/>
+                    Style="{StaticResource ModernButtonNewCreateTask}" Click="CreateNewTask_Click"/>
         </Grid>
     </Grid>
 </Page>

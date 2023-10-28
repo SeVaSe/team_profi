@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,40 @@ namespace team_profi.Pages.UserPages
     /// </summary>
     public partial class TasksUserPage : Page
     {
+        private ObservableCollection<Assignments> assignments;
         public TasksUserPage()
         {
             InitializeComponent();
+
+            assignments = new ObservableCollection<Assignments>();
+
+            using (var db = new TeamProfiBDEntities())
+            {
+                var assignmentsFromDb = db.Assignments.ToList();
+                foreach (var assignment in assignmentsFromDb)
+                {
+                    assignments.Add(new Assignments
+                    {
+                        AssigID = assignment.AssigID,
+                        TeachID = assignment.TeachID,
+                        Topic = assignment.Topic.ToUpper(),
+                        TaskDescription = assignment.TaskDescription,
+                        CreationDate = assignment.CreationDate
+                    });
+                }
+
+                DataGridUser.ItemsSource = assignments;
+            }
+        }
+
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Border border && border.DataContext is Assignments assignment)
+            {
+                DopPages.AssigmentDescriptionUserPage descriptionPage = new DopPages.AssigmentDescriptionUserPage(assignment);
+                NavigationService.Navigate(descriptionPage);
+            }
         }
     }
 }

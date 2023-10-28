@@ -51,21 +51,17 @@ namespace team_profi.Pages.AdminPages
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            // Получите задание, связанное с этим Border
             if (sender is Border border && border.DataContext is Assignments assignment)
             {
-                // Создайте новую страницу для отображения описания задания
                 DopPages.AssignmentDescriptionPage descriptionPage = new DopPages.AssignmentDescriptionPage(assignment);
 
-                // Откройте новое окно или место, где вы хотите отображать описание
-                // Например, используйте NavigationService для отображения страницы в окне навигации
                 NavigationService.Navigate(descriptionPage);
             }
         }
 
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CreateNewTask_Click(object sender, RoutedEventArgs e)
         {
 
         }
