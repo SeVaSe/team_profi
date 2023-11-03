@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Classes;
 using team_profi.Pages.AdminPages;
 using team_profi.Pages.UserPages;
 
@@ -38,6 +39,45 @@ namespace team_profi.Pages.DopPages
 
         private void SendTask_Click(object sender, RoutedEventArgs e)
         {
+            string nameAdmin = DataDBControlClass.GetName();
+
+            using (var db = new TeamProfiBDEntities())
+            {
+                var user = db.Users.FirstOrDefault(u => u.Login == nameAdmin);
+
+                if (user != null)
+                {
+                    int userIdAdmin = user.UserID;
+
+                    var newAssigment = new Assignments()
+                    {
+                        TeachID = userIdAdmin,
+                        Topic = TxtBox_Topic.Text,
+                        TaskDescription = TxtBox_Descr.Text,
+                        CreationDate = TxtBl_DateTask.Text
+                    };
+
+                    using (var dbs = new TeamProfiBDEntities())
+                    {
+                        dbs.Assignments.Add(newAssigment);
+                        dbs.SaveChanges();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Данного учителя нет, стоит обратиться в тех-поддержку и решить данный вопрос", "Сбой системы!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+                
+            }
+            
+
+            
+
+            
+
+            TxtBox_Topic.Clear();
+            TxtBox_Descr.Clear();
 
         }
     }

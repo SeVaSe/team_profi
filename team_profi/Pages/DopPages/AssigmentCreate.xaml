@@ -33,7 +33,7 @@
                     <RowDefinition Height="60*"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Left" FontSize="24" Style="{StaticResource ModernTextBlock}" TextWrapping="Wrap" Text="Тема задания" VerticalAlignment="Top" Height="27" Width="186" Margin="10,4,0,0"/>
-                <TextBox HorizontalAlignment="Center" Style="{StaticResource ModernTextBoxThemeAssigm}" TextWrapping="Wrap" VerticalAlignment="Top" Width="800" Height="50" Margin="0,35,0,0" Grid.RowSpan="2"/>
+                <TextBox HorizontalAlignment="Center" Name="TxtBox_Topic" Style="{StaticResource ModernTextBoxThemeAssigm}" TextWrapping="Wrap" VerticalAlignment="Top" Width="800" Height="50" Margin="0,35,0,0" Grid.RowSpan="2"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -41,7 +41,7 @@
                     <RowDefinition Height="290*"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Left" FontSize="24" Style="{StaticResource ModernTextBlock}" Margin="26,10,0,0" TextWrapping="Wrap" Text="Основная информация" VerticalAlignment="Top" Height="30" Width="260"/>
-                <TextBox HorizontalAlignment="Center" Grid.Row="1" Style="{StaticResource ModernTextBoxInfoAssigm}" TextWrapping="Wrap" VerticalAlignment="Center" Width="800" Height="289"/>
+                <TextBox HorizontalAlignment="Center" Grid.Row="1" Name="TxtBox_Descr" Style="{StaticResource ModernTextBoxInfoAssigm}" TextWrapping="Wrap" VerticalAlignment="Center" Width="800" Height="289"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">

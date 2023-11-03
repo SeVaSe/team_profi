@@ -65,6 +65,7 @@ namespace team_profi.Pages.AdminPages
         private void BtnExitAcc_Click(object sender, RoutedEventArgs e)
         {
             LoginInfoAll.ShowLogin("net");
+            DataDBControlClass.SetName("noap");
 
             AdminWindow main = Window.GetWindow(this) as AdminWindow;
 

@@ -60,7 +60,7 @@ namespace team_profi.Pages.MainPages
                             case "admin":
                                 WindowOpenClass.OpenWindow<AdminWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
-
+                                DataDBControlClass.SetName(user.Login);
                                 mainWindow.Close();
                                 break;
                             case "user":
