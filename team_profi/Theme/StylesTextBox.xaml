@@ -251,7 +251,7 @@
                     <Border CornerRadius="30"
                     BorderThickness="3"
                     BorderBrush="#003cff"
-                    Width="800" Height="280">
+                    Width="800" Height="360">
 
                         <Grid>
                             <Rectangle StrokeThickness="1"/>

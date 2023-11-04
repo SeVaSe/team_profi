@@ -51,6 +51,7 @@ namespace team_profi.Pages.UserPages
                         TxtBl_TeachHousetxt.Text = user.College;
                         TxtBl_Roletxt.Text = user.RoleUsers;
                     }
+                    DataGetIDStudentClass.SetIDStud(TxtBl_Gmailtxt.Text); // заносим в контроль за пользователем, теперь его логин отслеживаем в профиле 
                 }
                 else
                 {
@@ -62,7 +63,9 @@ namespace team_profi.Pages.UserPages
         private void BtnExitAcc_Click(object sender, RoutedEventArgs e)
         {
             LoginInfoAll.ShowLogin("net");
-            
+            DataGetIDStudentClass.SetIDStud("noap");
+            DataGetIDAssigmentClass.SetIDAssig("noap");
+
             UserWindow main = Window.GetWindow(this) as UserWindow;
 
             if (main != null)

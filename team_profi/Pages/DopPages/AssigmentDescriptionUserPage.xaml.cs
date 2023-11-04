@@ -38,7 +38,7 @@ namespace team_profi.Pages.DopPages
 
         private void ExecuteTask_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new DopPages.AssigmentAnswerCreate());
         }
     }
 }

@@ -53,6 +53,7 @@ namespace team_profi.WorkWindow
         private void BtnAnswer_Click(object sender, RoutedEventArgs e)
         {
             ProfiMain.Navigate(new AnswerUserPage());
+            MessageBox.Show(DataGetIDStudentClass.GetName());
         }
     }
 }
