@@ -23,7 +23,7 @@
                                         <Border Style="{StaticResource ModernBorderTask}" Cursor="Hand" Margin="50,10,10,10" MouseLeftButtonDown="Border_MouseLeftButtonDown">
                                             <Grid>
                                                 <StackPanel>
-                                                    <TextBlock Text="{Binding Topic}" Style="{StaticResource ModernTextBlockTaskName}" HorizontalAlignment="Left" Margin="30,15,15,1"/>
+                                                    <TextBlock Name="TxtBl_Topic" Text="{Binding Topic}" Style="{StaticResource ModernTextBlockTaskName}" HorizontalAlignment="Left" Margin="30,15,15,1"/>
                                                     <TextBlock Text="{Binding CreationDate}" Style="{StaticResource ModernTextBlockTaskDate}" HorizontalAlignment="Left" Margin="30,0,15,15"/>
                                                 </StackPanel>
                                             </Grid>

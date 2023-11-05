@@ -80,7 +80,6 @@ namespace team_profi.Pages.MainPages
                     TxtBoxPasw.Clear();
                 }
             }
-            mainWindow.Close();
         }
     }
 }

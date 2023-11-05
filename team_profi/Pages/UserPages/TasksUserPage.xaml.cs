@@ -22,6 +22,7 @@ namespace team_profi.Pages.UserPages
     public partial class TasksUserPage : Page
     {
         private ObservableCollection<Assignments> assignments;
+
         public TasksUserPage()
         {
             InitializeComponent();
@@ -42,7 +43,6 @@ namespace team_profi.Pages.UserPages
                         CreationDate = assignment.CreationDate
                     });
                 }
-
                 DataGridUser.ItemsSource = assignments;
             }
         }

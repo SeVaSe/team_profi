@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Classes;
 using team_profi.Pages.UserPages;
 
 namespace team_profi.Pages.DopPages
@@ -30,6 +31,65 @@ namespace team_profi.Pages.DopPages
 
         private void SendTask_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                int studID = 999;
+                int assigID = 999;
+                string nameStud = DataGetIDStudentClass.GetName();
+                string nameAssig = DataGetIDAssigmentClass.GetName();
+                
+
+                using (var db = new TeamProfiBDEntities())
+                {
+                    MessageBox.Show("0");
+                    var users = db.Users
+                        .AsNoTracking()
+                        .Where(u => u.Login == nameStud)
+                        .ToList();
+                    MessageBox.Show("1");
+                    foreach (var user in users)
+                    {
+                        studID = user.UserID;
+                    }
+
+                    MessageBox.Show("2");
+                    var assigs = db.Assignments
+                        .AsNoTracking()
+                        .Where(u => u.Topic == nameAssig)
+                        .ToList();
+                    MessageBox.Show(nameAssig);
+                    foreach (var assig in assigs)
+                    {
+                        assigID = assig.AssigID;
+                    }
+                    MessageBox.Show("3");
+
+
+
+                }
+                MessageBox.Show("4");
+                var answerItem = new Answers()
+                {
+                    AssignmentID = assigID,
+                    StudentID = studID,
+                    AnswerText = TxtBox_Descr.Text,
+                    SubmissionDate = TxtBl_DateTask.Text
+                };
+                MessageBox.Show(studID.ToString());
+                MessageBox.Show(assigID.ToString());
+                MessageBox.Show("5");
+                using (var db = new TeamProfiBDEntities())
+                {
+                    db.Answers.Add(answerItem);
+                    db.SaveChanges();
+                }
+
+                NavigationService.Navigate(new TasksUserPage());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ошибка: {ex.Message}. Подробности: {ex.InnerException?.Message}");
+            }
 
         }
 
