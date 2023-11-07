@@ -100,6 +100,9 @@
     <Compile Include="Pages\AdminPages\TasksAdminPage.xaml.cs">
       <DependentUpon>TasksAdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DopPages\AnswerAdminSend.xaml.cs">
+      <DependentUpon>AnswerAdminSend.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DopPages\AssigmentAnswerCreate.xaml.cs">
       <DependentUpon>AssigmentAnswerCreate.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AdminPages\TasksAdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DopPages\AnswerAdminSend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,6 +21,7 @@ namespace team_profi.Pages.AdminPages
     /// </summary>
     public partial class AnswerAdminPage : Page
     {
+        // класс по созданию временной програмной таблицы, для отображения данных
         public class AnswerViewModel
         {
             public string Topic { get; set; }
@@ -70,6 +71,9 @@ namespace team_profi.Pages.AdminPages
             if (sender is Border border && border.DataContext is AnswerViewModel answers)
             {
                 //DopPages.AssignmentDescriptionPage descriptionPage = new DopPages.AssignmentDescriptionPage(assignment);
+                DopPages.AnswerAdminSend answerSend = new DopPages.AnswerAdminSend();
+                NavigationService.Navigate(answerSend);
+
 
                 MessageBox.Show("ПЕРЕХОД НА КОММЕНТИРОВАНИЕ ЗАДАНИЯ");
             }

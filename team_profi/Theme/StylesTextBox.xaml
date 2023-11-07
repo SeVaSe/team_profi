@@ -340,4 +340,103 @@
         </Setter>
     </Style>
 
+    <!--TxtBox написание комментария-->
+    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextBoxAnswerCommentSend">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="30"
+            BorderThickness="3"
+            BorderBrush="#003cff"
+            Width="790" Height="120">
+
+                        <Grid>
+                            <Rectangle StrokeThickness="1"/>
+                            <TextBox Margin="1"
+                     Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}}"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     VerticalContentAlignment="Top"
+                     Padding="5"
+                     Foreground="#1c73ff"
+                     FontSize="20"
+                     x:Name="SearchBox"/>
+
+                            <TextBlock IsHitTestVisible="False"
+                       Text="Напишите комментарий к заданию..."
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="10,10,0,0"
+                       FontSize="15"
+                       Foreground="DarkGray">
+
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TxtBox выставление оценки-->
+    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextBoxPointAnswer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="15"
+        BorderThickness="3"
+        BorderBrush="#003cff"
+        Width="80" Height="80">
+
+                        <Grid>
+                            <Rectangle StrokeThickness="1"/>
+                            <TextBox Margin="1"
+                 Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 VerticalContentAlignment="Center"
+                 TextAlignment="Center"
+                 Padding="5"
+                 Foreground="#1c73ff"
+                 FontSize="50"
+                 FontWeight="ExtraBold"
+                 x:Name="SearchBox"/>
+
+                            <TextBlock IsHitTestVisible="False"
+                   Text="❓ "
+                    TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Margin="10,0,0,0"
+                   FontSize="25"
+                   Foreground="DarkGray">
+
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

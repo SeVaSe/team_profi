@@ -6,4 +6,9 @@
         <Setter Property="Foreground" Value="#1c73ff"/>
         
     </Style>
+
+    
+
+
+
 </ResourceDictionary>
