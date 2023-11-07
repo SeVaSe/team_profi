@@ -58,5 +58,13 @@
         <Setter Property="FontStyle" Value="Italic"/>
     </Style>
 
- 
+    <!--текстБлок для ответа (ФИО)-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="ModernTextBlockAnswerFIO">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="#1c73ff"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Res/fonts/#Dosis"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
 </ResourceDictionary>

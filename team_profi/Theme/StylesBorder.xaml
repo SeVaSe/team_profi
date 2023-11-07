@@ -12,11 +12,22 @@
 
     <!--стиль для бордер задания-->
     <Style TargetType="{x:Type Border}" x:Key="ModernBorderTask">
-        <Setter Property="Background" Value="#fafdff"/> <!--#f0faff-->
+        <Setter Property="Background" Value="#fafdff"/>
+        <!--#f0faff-->
         <Setter Property="BorderBrush" Value="#1c73ff"/>
         <Setter Property="BorderThickness" Value="5"/>
         <Setter Property="CornerRadius" Value="50"/>
         <Setter Property="Height" Value="110"/>
+    </Style>
+
+    <!--стиль для бордер ответы-->
+    <Style TargetType="{x:Type Border}" x:Key="ModernBorderAnswer">
+        <Setter Property="Background" Value="#fafdff"/>
+        <!--#f0faff-->
+        <Setter Property="BorderBrush" Value="#1c73ff"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="CornerRadius" Value="50"/>
+        <Setter Property="Height" Value="150"/>
     </Style>
 
 </ResourceDictionary>

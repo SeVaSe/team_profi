@@ -9,7 +9,29 @@
       Title="AnswerAdminPage">
 
     <Grid>
-        <Label Content="ОТВЕТЫ АДМИН" FontSize="40" HorizontalAlignment="Left" Margin="363,214,0,0" VerticalAlignment="Top" Height="79" Width="188"/>
+        <DataGrid Name="DataGridUser" AutoGenerateColumns="True" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" GridLinesVisibility="None" HeadersVisibility="None">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridRow">
+                                <Grid Name="GridText">
+                                    <Border Style="{StaticResource ModernBorderAnswer}" Cursor="Hand" Margin="50,10,10,10" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                                        <Grid>
+                                            <StackPanel>
+                                                <TextBlock Name="TxtBl_User" Text="{Binding FIO}" Style="{StaticResource ModernTextBlockAnswerFIO}" HorizontalAlignment="Left" Margin="30,20,15,1"/>
+                                                <TextBlock Name="TxtBl_Assig" Text="{Binding Topic}" Style="{StaticResource ModernTextBlockTaskName}" HorizontalAlignment="Left" Margin="30,0,15,1"/>
+                                                <TextBlock Text="{Binding SubmissionDate}" Style="{StaticResource ModernTextBlockTaskDate}" HorizontalAlignment="Left" Margin="30,0,15,15"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
 
+        </DataGrid>
     </Grid>
 </Page>

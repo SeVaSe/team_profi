@@ -243,8 +243,8 @@
 
 
 
-    <!--TxtBox информация о задании-->
-    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextBoxInfoAssigm">
+    <!--TxtBox ответ на задание-->
+    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextBoxInfoAssigmAnswer">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
@@ -272,6 +272,55 @@
                                Margin="10,10,0,0"
                                FontSize="15"
                                Foreground="DarkGray">
+
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <!--TxtBox написание инфо части-->
+    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextBoxInfoAssigm">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="30"
+                BorderThickness="3"
+                BorderBrush="#003cff"
+                Width="800" Height="280">
+
+                        <Grid>
+                            <Rectangle StrokeThickness="1"/>
+                            <TextBox Margin="1"
+                         Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}}"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         VerticalContentAlignment="Top"
+                         Padding="5"
+                         Foreground="#1c73ff"
+                         FontSize="20"
+                         x:Name="SearchBox"/>
+
+                            <TextBlock IsHitTestVisible="False"
+                           Text="Укажите всю информацию о задании..."
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"
+                           Margin="10,10,0,0"
+                           FontSize="15"
+                           Foreground="DarkGray">
 
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
