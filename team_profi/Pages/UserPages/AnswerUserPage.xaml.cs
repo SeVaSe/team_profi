@@ -29,6 +29,7 @@ namespace team_profi.Pages.UserPages
             public string AnswerText { get; set; }
             public string SubmissionDate { get; set; }
             public string Grade { get; set; }
+            public string Comment { get; set; }
 
         }
 
@@ -40,9 +41,7 @@ namespace team_profi.Pages.UserPages
             InitializeComponent();
 
             answers = new ObservableCollection<AnswerTeachViewModel>();
-            string ab = "999";
             string name = DataGetIDStudentClass.GetName();
-            MessageBox.Show(name);
 
             using (var db = new TeamProfiBDEntities())
             {
@@ -56,7 +55,6 @@ namespace team_profi.Pages.UserPages
                     .Where(a => a.StudentID == studentID)
                     .ToList();
 
-                MessageBox.Show($"Found {answersFromDb.Count} answers for StudentID {studentID}");
 
                 foreach (var answer in answersFromDb)
                 {
@@ -72,6 +70,11 @@ namespace team_profi.Pages.UserPages
                         .Select(g => g.Grade)
                         .FirstOrDefault();
 
+                    var comm = db.Grades
+                        .Where(g => g.AnswerID == answer.AnswerID)
+                        .Select(g => g.Comment)
+                        .FirstOrDefault();
+
                     // Создаем AnswerTeachViewModel и устанавливаем оценку или текст "Нет оценки"
                     answers.Add(new AnswerTeachViewModel
                     {
@@ -79,13 +82,13 @@ namespace team_profi.Pages.UserPages
                         StudentID = answer.StudentID,
                         AnswerText = answer.AnswerText,
                         SubmissionDate = answer.SubmissionDate,
-                        Grade = (grade != 0) ? grade.ToString() + "\nпроверен" : "-\nотправлен"
+                        Grade = (grade != 0) ? grade.ToString() + "\nпроверен" : "-\nотправлен",
+                        Comment = comm
 
                         /*Grade = (grade != 0) ? grade.ToString() + "\nПроверен" : "-\nОтправлен"*/
                     });
                 }
 
-                MessageBox.Show($"Added {answers.Count} answers to the collection");
                 DataGridUser.ItemsSource = answers;
             }
         }
@@ -93,13 +96,16 @@ namespace team_profi.Pages.UserPages
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            /*if (sender is Border border && border.DataContext is Assignments assignment)
-            {
-                DopPages.AssigmentDescriptionUserPage descriptionPage = new DopPages.AssigmentDescriptionUserPage(assignment);
-                NavigationService.Navigate(descriptionPage);
-            }*/
+            // Предположим, что вы определяете переменную gr где-то в этом блоке кода или в методе
+            Grades gr = new Grades(); // Замените GetGrades() на то, как у вас определена переменная gr
 
-            MessageBox.Show("ЩАС");
+            if (sender is Border border && border.DataContext is AnswerTeachViewModel viewModel)
+            {
+                DopPages.AnswerUserInfoPage descriptionPage = new DopPages.AnswerUserInfoPage(viewModel);
+                NavigationService.Navigate(descriptionPage);
+            }
+
+
         }
     }
 }

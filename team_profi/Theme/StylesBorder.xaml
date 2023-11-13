@@ -30,4 +30,10 @@
         <Setter Property="Height" Value="150"/>
     </Style>
 
+    <!--стиль для бордер ответы препода ученику-->
+    <Style x:Key="BlueRoundedInfoAnswerBorder" TargetType="Border">
+        <Setter Property="Background" Value="#cfe1ff"/>
+        <Setter Property="CornerRadius" Value="20"/>
+    </Style>
+
 </ResourceDictionary>
