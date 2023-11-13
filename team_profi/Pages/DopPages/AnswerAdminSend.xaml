@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="200*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxPointAnswer}" VerticalAlignment="Center" Margin="110,0,0,0" />
+                <TextBox x:Name="TxtBox_Grade" HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxPointAnswer}" VerticalAlignment="Center" Margin="110,0,0,0" />
                 <Label Content="БАЛЛЫ" Style="{StaticResource ModernLabelText}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Height="36" Width="75" Margin="30,0,0,0"/>
             </Grid>
             <Grid>
@@ -28,19 +28,19 @@
                     <RowDefinition Height="75*"/>
                     <RowDefinition Height="75*"/>
                 </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBlockTaskName}" Text="НАЗВАНИЕ ЗАДАНИЯ" Height="46" Width="580" Margin="0,1,0,0" VerticalAlignment="Top"/>
+                <TextBlock x:Name="TxtBl_AnswerName" HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBlockTaskName}" Text="НАЗВАНИЕ ЗАДАНИЯ" Height="46" Width="580" Margin="0,1,0,0" VerticalAlignment="Top"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="450*"/>
                         <ColumnDefinition Width="150*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock TextWrapping="Wrap" Text="ФАМИЛИЯ ИМЯ ОТЧЕСТВО" Style="{StaticResource ModernTextBlockAnswerFIO}" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left"  Height="25" Width="440" Margin="0,50,0,0"/>
-                    <TextBlock Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBlockTaskDate}" Text="00.00.1999" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Left" Height="25" Width="150" Margin="0,50,0,0"/>
+                    <TextBlock x:Name="TxtBl_AnswerFio" TextWrapping="Wrap" Text="ФАМИЛИЯ ИМЯ ОТЧЕСТВО" Style="{StaticResource ModernTextBlockAnswerFIO}" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left"  Height="25" Width="440" Margin="0,50,0,0"/>
+                    <TextBlock x:Name="TxtBl_AnswerDate" Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBlockTaskDate}" Text="00.00.1999" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Left" Height="25" Width="150" Margin="0,50,0,0"/>
                 </Grid>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock TextAlignment="Left" HorizontalAlignment="Center" Text="Тут будет какое то описание выполненного задания" FontSize="25" Style="{StaticResource ModernTextBlock}" TextWrapping="Wrap" VerticalAlignment="Center" Height="330" Width="780"/>
+            <TextBlock x:Name="TxtBl_AnswerText" TextAlignment="Left" HorizontalAlignment="Center" Text="Тут будет какое то описание выполненного задания" FontSize="25" Style="{StaticResource ModernTextBlock}" TextWrapping="Wrap" VerticalAlignment="Center" Height="330" Width="780"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
@@ -49,7 +49,7 @@
             </Grid.RowDefinitions>
             <Label Content="КОММЕНТАРИИ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="308" Height="38"/>
             <Button Content="ОТПРАВИТЬ" Style="{StaticResource ModernButtonSendAnswer}" HorizontalAlignment="Left" Margin="645,0,0,0" VerticalAlignment="Center" Height="38" Width="145" Click="SendCommentAnswer_Click"/>
-            <TextBox HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxAnswerCommentSend}" VerticalAlignment="Top" Width="800" Height="130"/>
+            <TextBox x:Name="TxtBox_Comment" AcceptsReturn="True" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxAnswerCommentSend}" VerticalAlignment="Top" Width="800" Height="130"/>
         </Grid>
 
     </Grid>

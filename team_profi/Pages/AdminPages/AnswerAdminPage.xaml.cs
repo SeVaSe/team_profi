@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static team_profi.Pages.AdminPages.AnswerAdminPage;
 
 namespace team_profi.Pages.AdminPages
 {
@@ -71,11 +72,8 @@ namespace team_profi.Pages.AdminPages
             if (sender is Border border && border.DataContext is AnswerViewModel answers)
             {
                 //DopPages.AssignmentDescriptionPage descriptionPage = new DopPages.AssignmentDescriptionPage(assignment);
-                DopPages.AnswerAdminSend answerSend = new DopPages.AnswerAdminSend();
+                DopPages.AnswerAdminSend answerSend = new DopPages.AnswerAdminSend(answers);
                 NavigationService.Navigate(answerSend);
-
-
-                MessageBox.Show("ПЕРЕХОД НА КОММЕНТИРОВАНИЕ ЗАДАНИЯ");
             }
         }
 

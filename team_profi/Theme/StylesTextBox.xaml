@@ -18,6 +18,7 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
+                                     TextWrapping="Wrap"
                                      Foreground="#1c73ff"
                                      FontSize="20"
                                      x:Name="SearchBox"/>
@@ -66,6 +67,7 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
+                                     TextWrapping="Wrap"
                                      Foreground="#1c73ff"
                                      FontSize="20"
                                      x:Name="SearchBox"/>
@@ -114,6 +116,7 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
+                                     TextWrapping="Wrap"
                                      Foreground="#1c73ff"
                                      FontSize="20"
                                      x:Name="SearchBox"/>
@@ -162,6 +165,7 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
+                                     TextWrapping="Wrap"
                                      Foreground="#1c73ff"
                                      FontSize="20"
                                      x:Name="SearchBox"/>
@@ -211,6 +215,7 @@
                                  Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  Padding="5"
+                                 TextWrapping="Wrap"
                                  Foreground="#1c73ff"
                                  FontSize="20"
                                  x:Name="SearchBox"/>
@@ -261,6 +266,7 @@
                              Background="Transparent"
                              VerticalContentAlignment="Top"
                              Padding="5"
+                             TextWrapping="Wrap"
                              Foreground="#1c73ff"
                              FontSize="20"
                              x:Name="SearchBox"/>
@@ -310,6 +316,7 @@
                          Background="Transparent"
                          VerticalContentAlignment="Top"
                          Padding="5"
+                         TextWrapping="Wrap"
                          Foreground="#1c73ff"
                          FontSize="20"
                          x:Name="SearchBox"/>
@@ -357,6 +364,7 @@
                      BorderThickness="0"
                      Background="Transparent"
                      VerticalContentAlignment="Top"
+                     TextWrapping="Wrap"
                      Padding="5"
                      Foreground="#1c73ff"
                      FontSize="20"
@@ -406,6 +414,7 @@
                  Background="Transparent"
                  VerticalContentAlignment="Center"
                  TextAlignment="Center"
+                 TextWrapping="Wrap"
                  Padding="5"
                  Foreground="#1c73ff"
                  FontSize="50"

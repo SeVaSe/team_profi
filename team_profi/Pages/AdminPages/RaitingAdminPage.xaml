@@ -30,7 +30,7 @@
 
                                             <!-- Здесь размещаем ФИО и общее количество баллов -->
                                             <TextBlock Name="txtBl_Info" Style="{StaticResource ModernTextBlockRaiting}" HorizontalAlignment="Left" Margin="5" Padding="100,0,0,0"/>
-                                            <TextBlock Text="{Binding TotalPoints}" Style="{StaticResource ModernTextBlockPointsRaiting}" HorizontalAlignment="Right" Margin="5" Padding="0,0,40,0"/>
+                                            <TextBlock x:Name="TxtBl_Points" Text="{Binding TotalPoints}" Style="{StaticResource ModernTextBlockPointsRaiting}" HorizontalAlignment="Right" Margin="5" Padding="0,0,40,0"/>
                                         </Grid>
                                     </Border>
                                 </Grid>
