@@ -9,7 +9,39 @@
       Title="AnswerUserPage">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="40" Margin="274,217,0,0" TextWrapping="Wrap" Text="Пользователь ответы" VerticalAlignment="Top" Height="163" Width="337"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <DataGrid Name="DataGridUser" AutoGenerateColumns="True" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" GridLinesVisibility="None" HeadersVisibility="None">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="DataGridRow">
+                                    <Grid Name="GridText">
+                                        <Border Style="{StaticResource ModernBorderTask}" Cursor="Hand" Margin="50,10,10,10" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                                            <Grid>
+                                                <StackPanel>
+                                                    <TextBlock Name="TxtBl_Topic" Text="{Binding Topic}" Style="{StaticResource ModernTextBlockTaskName}" HorizontalAlignment="Left" Margin="30,15,15,1"/>
+                                                    <TextBlock Text="{Binding SubmissionDate}" Style="{StaticResource ModernTextBlockTaskDate}" HorizontalAlignment="Left" Margin="30,0,15,15"/>
+                                                    
+                                                    
+                                                </StackPanel>
+                                                <TextBlock Name="TxtBl_Grade" Text="{Binding Grade}" Style="{StaticResource ModernTextBlockTaskDate}" FontSize="30" FontWeight="ExtraBold" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,15,15,0"/>
+                                                
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.RowStyle>
+
+            </DataGrid>
+
+        </Grid>
 
     </Grid>
 </Page>
