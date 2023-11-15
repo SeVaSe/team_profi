@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Classes;
 
 namespace team_profi.Pages.UserPages
 {
@@ -22,20 +23,6 @@ namespace team_profi.Pages.UserPages
     /// 
 
 
-    // MVVM 
-    public class StudentRatingViewModel
-    {
-        public int Rank { get; set; }
-        public string FullName { get; set; }
-        public int TotalPoints { get; set; }
-
-        public StudentRatingViewModel(int rank, string fullName, int totalPoints)
-        {
-            Rank = rank;
-            FullName = fullName;
-            TotalPoints = totalPoints;
-        }
-    }
 
     public partial class RaitingUserPage : Page
     {
