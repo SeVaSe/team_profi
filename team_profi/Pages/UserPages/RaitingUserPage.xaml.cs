@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,87 +19,61 @@ namespace team_profi.Pages.UserPages
     /// <summary>
     /// Логика взаимодействия для RaitingUserPage.xaml
     /// </summary>
+    /// 
+
+
+    // MVVM 
+    public class StudentRatingViewModel
+    {
+        public int Rank { get; set; }
+        public string FullName { get; set; }
+        public int TotalPoints { get; set; }
+
+        public StudentRatingViewModel(int rank, string fullName, int totalPoints)
+        {
+            Rank = rank;
+            FullName = fullName;
+            TotalPoints = totalPoints;
+        }
+    }
+
     public partial class RaitingUserPage : Page
     {
+        private ObservableCollection<StudentRatingViewModel> studentRatings;
+
         public RaitingUserPage()
         {
             InitializeComponent();
-            var studentRatings = TeamProfiBDEntities.GetEntities1().StudentRatings
-                        .OrderByDescending(sr => sr.TotalPoints)
-                        .ToList();
-
-
-            //  отсортированные данные к DataGrid
-            DataGridUser.ItemsSource = studentRatings;
+            LoadStudentRatings();
         }
 
-        private void NumberTextBlock_Loaded(object sender, RoutedEventArgs e)
+        private void LoadStudentRatings()
         {
-            TextBlock numberTextBlock = sender as TextBlock;
+            studentRatings = new ObservableCollection<StudentRatingViewModel>();
 
-            if (numberTextBlock != null)
+            using (var db = new TeamProfiBDEntities())
             {
-                // Элемент данных, связанный с этой строкой
-                var studentRating = numberTextBlock.DataContext as StudentRatings;
+                var sortedStudentRatings = db.StudentRatings
+                    .OrderByDescending(sr => sr.TotalPoints)
+                    .ToList();
 
-                if (studentRating != null)
+                int rank = 1;
+                foreach (var studentRating in sortedStudentRatings)
                 {
-                    // Индекс элемента данных и увеличьте его на 1
-                    int index = DataGridUser.Items.IndexOf(studentRating) + 1;
-
-                    // Номер в текстовом блоке
-                    numberTextBlock.Text = index.ToString();
-
                     int studentID = studentRating.StudentID;
-
-                    // Данные студента
-                    var student = TeamProfiBDEntities.GetEntities1().Users.FirstOrDefault(s => s.UserID == studentID);
+                    var student = db.Users.FirstOrDefault(s => s.UserID == studentID);
 
                     if (student != null)
                     {
-                        //  новый TextBlock для имени и фамилии студента
-                        TextBlock txtBl_Info = new TextBlock
-                        {
-                            Style = (Style)FindResource("ModernTextBlockRaiting"),
-                            HorizontalAlignment = HorizontalAlignment.Left,
-                            Margin = new Thickness(5),
-                            Padding = new Thickness(80, 0, 0, 0),
-                            Text = $"{student.LastName} {student.FirstName} {student.Otchestvo}"
-                        };
-
-                        //  новый TextBlock к Grid для текущей строки
-                        var gridText = numberTextBlock.Parent as Grid;
-                        if (gridText != null)
-                        {
-                            gridText.Children.Add(txtBl_Info);
-                        }
+                        var viewModel = new StudentRatingViewModel(rank, $"{student.LastName} {student.FirstName}", studentRating.TotalPoints);
+                        studentRatings.Add(viewModel);
+                        rank++;
                     }
                 }
             }
-        }
 
-
-        private T FindVisualChild<T>(DependencyObject parent, string name) where T : DependencyObject
-        {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
-            {
-                var child = VisualTreeHelper.GetChild(parent, i);
-                if (child != null)
-                {
-                    var frameworkElement = child as FrameworkElement;
-                    if (frameworkElement != null && frameworkElement.Name == name)
-                    {
-                        return (T)child;
-                    }
-
-                    T result = FindVisualChild<T>(child, name);
-                    if (result != null)
-                    {
-                        return result;
-                    }
-                }
-            }
-            return null;
+            DataGridUser.ItemsSource = studentRatings;
         }
     }
+
 }

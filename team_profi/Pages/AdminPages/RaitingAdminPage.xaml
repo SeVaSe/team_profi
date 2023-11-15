@@ -9,8 +9,6 @@
       Title="RaitingAdminPage">
 
     <Grid x:Name="MainGrid">
-
-
         <DataGrid Name="DataGridUser" AutoGenerateColumns="False" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
           GridLinesVisibility="None" HeadersVisibility="None">
             <DataGrid.RowStyle>
@@ -19,33 +17,24 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="DataGridRow">
                                 <Grid Name="GridText">
-                                    <TextBlock x:Name="NumberTextBlock"
-                                                Style="{StaticResource ModernTextBlockNumRaiting}" 
-                                                HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Padding="0,0,100,0"
-                                                Loaded="NumberTextBlock_Loaded"/>   
+                                    <TextBlock x:Name="NumberTextBlock" Text="{Binding Rank}"
+                                        Style="{StaticResource ModernTextBlockNumRaiting}" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Padding="0,0,100,0" />
+
                                     <Border Style="{StaticResource ModernBorderRaiting}" Margin="50,10,10,10">
                                         <Grid>
-                                            <!-- Нумерация -->
-                                            
-
                                             <!-- Здесь размещаем ФИО и общее количество баллов -->
-                                            <TextBlock Name="txtBl_Info" Style="{StaticResource ModernTextBlockRaiting}" HorizontalAlignment="Left" Margin="5" Padding="100,0,0,0"/>
-                                            <TextBlock x:Name="TxtBl_Points" Text="{Binding TotalPoints}" Style="{StaticResource ModernTextBlockPointsRaiting}" HorizontalAlignment="Right" Margin="5" Padding="0,0,40,0"/>
+                                            <TextBlock Name="txtBl_Info" Style="{StaticResource ModernTextBlockRaiting}" HorizontalAlignment="Left" Margin="5" Padding="50,0,0,0" 
+                                               Text="{Binding FullName}" />
+                                            <TextBlock Text="{Binding TotalPoints}" Style="{StaticResource ModernTextBlockPointsRaiting}" HorizontalAlignment="Right" Margin="5" Padding="0,0,40,0"/>
                                         </Grid>
                                     </Border>
                                 </Grid>
-                                
-
-
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
                 </Style>
             </DataGrid.RowStyle>
         </DataGrid>
-
-
-
-
     </Grid>
 </Page>
