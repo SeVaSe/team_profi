@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using team_profi.Classes;
+using team_profi.Pages.AdminPages;
 using static team_profi.Pages.AdminPages.AnswerAdminPage;
 
 namespace team_profi.Pages.DopPages
@@ -112,6 +113,7 @@ namespace team_profi.Pages.DopPages
                     db.Grades.Add(grade);
                     db.SaveChanges();
                     MessageBox.Show("Ответ был успешно отправлен", "Отправка ответа", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService?.Navigate(new AnswerAdminPage());
                 }
                 catch
                 {
