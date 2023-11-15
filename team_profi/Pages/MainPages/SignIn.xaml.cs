@@ -48,31 +48,43 @@ namespace team_profi.Pages.MainPages
                 }
                 else if (TxtBoxPasw.Text.Length >= 6)
                 {
-                    if (user.Password != TxtBoxPasw.Text)
+                    // Хэшируем введенный пароль
+                    string hashedPassword = PasswordHasherClass.HashPassword(TxtBoxPasw.Text);
+
+                    switch (user.Role)
                     {
-                        MessageBox.Show($"Пароль указан не верно {user.Password}", "Ошибка пароля", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        TxtBoxPasw.Clear();
-                    }
-                    else
-                    {
-                        switch (user.Role)
-                        {
-                            case "admin":
+                        case "admin":
+                            if (user.Password != TxtBoxPasw.Text)
+                            {
+                                MessageBox.Show("Пароль указан не верно", "Ошибка пароля", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                TxtBoxPasw.Clear();
+                            }
+                            else
+                            {
                                 WindowOpenClass.OpenWindow<AdminWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
                                 DataDBControlClass.SetName(user.Login);
                                 mainWindow.Close();
-                                break;
-                            case "user":
+                            }
+                            break;
+
+                        case "user":
+                            if (user.Password != hashedPassword)
+                            {
+                                MessageBox.Show("Пароль указан не верно", "Ошибка пароля", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                TxtBoxPasw.Clear();
+                            }
+                            else
+                            {
                                 WindowOpenClass.OpenWindow<UserWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
                                 mainWindow.Close();
-                                break;
-                        }
-                        TxtBoxGmail.Clear();
-                        TxtBoxPasw.Clear();
-                        
+                            }
+                            break;
+                            
                     }
+                    TxtBoxGmail.Clear();
+                    TxtBoxPasw.Clear();
                 }
                 else if (TxtBoxPasw.Text.Length < 6)
                 {
@@ -81,5 +93,6 @@ namespace team_profi.Pages.MainPages
                 }
             }
         }
+
     }
 }
