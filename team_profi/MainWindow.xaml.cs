@@ -43,7 +43,8 @@ namespace team_profi
 
         private void BtnMain_Click(object sender, RoutedEventArgs e)
         {
-            ProfiMain.Navigate(new AuthPage());     
+            ProfiMain.Navigate(new AuthPage());
+            ControlCodePaswClass.CodePasw = "noap";
         }
 
 

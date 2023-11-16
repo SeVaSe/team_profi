@@ -75,6 +75,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\ControlClass.cs" />
+    <Compile Include="Classes\ControlCodePaswClass.cs" />
     <Compile Include="Classes\DataDBControlClass.cs" />
     <Compile Include="Classes\mvvmRaitingClass.cs" />
     <Compile Include="Classes\PasswordHasherClass.cs" />

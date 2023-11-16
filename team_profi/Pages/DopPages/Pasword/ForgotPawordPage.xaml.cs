@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using team_profi.Classes;
 
 namespace team_profi.Pages.DopPages.Pasword
 {
@@ -34,28 +35,38 @@ namespace team_profi.Pages.DopPages.Pasword
             string emailTo = TxtBox_GmailPasw.Text; // Получение адреса электронной почты из TextBox
             string code = GenerateRandomCode(); // Генерация случайного 4-значного кода
 
-            // Отправка письма
-            try
+            if (TxtBox_GmailPasw.Text != "" || TxtBox_GmailPasw.Text != null)
             {
-                using (MailMessage mail = new MailMessage())
+                // Отправка письма
+                try
                 {
-                    mail.From = new MailAddress(meEmail); // Ваш адрес электронной почты
-                    mail.To.Add(emailTo); // Адрес получателя
-                    mail.Subject = "Код восстановления пароля";
-                    mail.Body = $"Ваш код восстановления пароля: {code}";
-
-                    using (SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587))
+                    using (MailMessage mail = new MailMessage())
                     {
-                        smtp.Credentials = new NetworkCredential(meEmail, mePassw); // Учетные данные для доступа к вашему почтовому ящику
-                        smtp.EnableSsl = true;
-                        smtp.Send(mail);
+                        mail.From = new MailAddress(meEmail); // Ваш адрес электронной почты
+                        mail.To.Add(emailTo); // Адрес получателя
+                        mail.Subject = "Код восстановления пароля";
+                        mail.Body = $"Ваш код восстановления пароля: {code}";
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587))
+                        {
+                            smtp.Credentials = new NetworkCredential(meEmail, mePassw); // Учетные данные для доступа к вашему почтовому ящику
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                        }
                     }
+                    MessageBox.Show("Код отправлен на почту.");
+
+                    ControlCodePaswClass.CodePasw = code;
+                    NavigationService?.Navigate(new CheckPaswPage());
                 }
-                MessageBox.Show("Код отправлен на почту.");
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Проверьете свою почту, возможно вы ее не правильно указали", "Ошибка почты", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Ошибка отправки кода: {ex.Message}");
+                MessageBox.Show("Вы не указали почту, заполните поле!", "Ошибка пустого значения", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
