@@ -21,9 +21,9 @@
                 <RowDefinition Height="250*"/>
             </Grid.RowDefinitions>
             <TextBlock HorizontalAlignment="Center" Margin="0,102,0,0" TextWrapping="Wrap" Style="{StaticResource ModernTextBlockTaskName}" Text="Восстановление пароля" VerticalAlignment="Top" Height="47" Width="570"/>
-            <Button Content="Получить код" Style="{StaticResource ModernButtonSignIn}" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Height="62" Width="392" Margin="0,2,0,0" Click="GetCode_Click"/>
+            <Button Content="ПОЛУЧИТЬ КОД" Style="{StaticResource ModernButtonSignIn}" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Height="62" Width="392" Margin="0,2,0,0" Click="GetCode_Click"/>
             <TextBox x:Name="TxtBox_GmailPasw" HorizontalAlignment="Left" Style="{StaticResource ModernTextBox}" Margin="194,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="506" Height="56"/>
-            <Label Content="Почта" Style="{StaticResource ModernLabelText}" FontSize="30" HorizontalAlignment="Left" Margin="95,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94"/>
+            <Label Content="ПОЧТА" Style="{StaticResource ModernLabelText}" FontSize="30" HorizontalAlignment="Left" Margin="77,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="112"/>
         </Grid>
 
     </Grid>

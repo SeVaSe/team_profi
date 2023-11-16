@@ -56,6 +56,7 @@ namespace team_profi.Pages.DopPages.Pasword
                     }
                     MessageBox.Show("Код отправлен на почту.");
 
+                    DataDBControlClass.SetName(emailTo);
                     ControlCodePaswClass.CodePasw = code;
                     NavigationService?.Navigate(new CheckPaswPage());
                 }

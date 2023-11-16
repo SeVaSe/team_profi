@@ -45,6 +45,7 @@ namespace team_profi
         {
             ProfiMain.Navigate(new AuthPage());
             ControlCodePaswClass.CodePasw = "noap";
+            DataDBControlClass.SetName("noap");
         }
 
 
