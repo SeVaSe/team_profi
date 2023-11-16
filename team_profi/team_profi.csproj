@@ -120,6 +120,15 @@
     <Compile Include="Pages\DopPages\AssignmentDescriptionPage.xaml.cs">
       <DependentUpon>AssignmentDescriptionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DopPages\Pasword\ChangePasword.xaml.cs">
+      <DependentUpon>ChangePasword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DopPages\Pasword\CheckPaswPage.xaml.cs">
+      <DependentUpon>CheckPaswPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DopPages\Pasword\ForgotPawordPage.xaml.cs">
+      <DependentUpon>ForgotPawordPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserPages\AnswerUserPage.xaml.cs">
       <DependentUpon>AnswerUserPage.xaml</DependentUpon>
     </Compile>
@@ -199,6 +208,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\DopPages\AssignmentDescriptionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DopPages\Pasword\ChangePasword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DopPages\Pasword\CheckPaswPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DopPages\Pasword\ForgotPawordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

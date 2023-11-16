@@ -1,0 +1,30 @@
+﻿<Page x:Class="team_profi.Pages.DopPages.Pasword.ForgotPawordPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:team_profi.Pages.DopPages.Pasword"
+      mc:Ignorable="d" 
+      Width="800" Height="700"
+      Title="ForgotPawordPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="250*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" Margin="0,102,0,0" TextWrapping="Wrap" Style="{StaticResource ModernTextBlockTaskName}" Text="Восстановление пароля" VerticalAlignment="Top" Height="47" Width="570"/>
+            <Button Content="Получить код" Style="{StaticResource ModernButtonSignIn}" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Height="62" Width="392" Margin="0,2,0,0" Click="GetCode_Click"/>
+            <TextBox x:Name="TxtBox_GmailPasw" HorizontalAlignment="Left" Style="{StaticResource ModernTextBox}" Margin="194,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="506" Height="56"/>
+            <Label Content="Почта" Style="{StaticResource ModernLabelText}" FontSize="30" HorizontalAlignment="Left" Margin="95,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94"/>
+        </Grid>
+
+    </Grid>
+</Page>

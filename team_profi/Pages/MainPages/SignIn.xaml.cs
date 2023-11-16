@@ -94,5 +94,9 @@ namespace team_profi.Pages.MainPages
             }
         }
 
+        private void ForgotPasword_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new DopPages.Pasword.ForgotPawordPage());
+        }
     }
 }

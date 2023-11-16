@@ -19,6 +19,7 @@ namespace team_profi
         public int TeacherID { get; set; }
         public int Grade { get; set; }
         public string Comment { get; set; }
+        public Nullable<bool> ReviewedByAdmin { get; set; }
     
         public virtual Answers Answers { get; set; }
         public virtual Users Users { get; set; }

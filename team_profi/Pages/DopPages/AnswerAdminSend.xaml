@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="200*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-                <TextBox x:Name="TxtBox_Grade" HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxPointAnswer}" VerticalAlignment="Center" Margin="110,0,0,0" />
+                <TextBox x:Name="TxtBox_Grade" IsEnabled="True" HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxPointAnswer}" VerticalAlignment="Center" Margin="110,0,0,0" />
                 <Label Content="БАЛЛЫ" Style="{StaticResource ModernLabelText}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Height="36" Width="75" Margin="30,0,0,0"/>
             </Grid>
             <Grid>
@@ -49,7 +49,7 @@
             </Grid.RowDefinitions>
             <Label Content="КОММЕНТАРИИ" Style="{StaticResource ModernLabelText}" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="308" Height="38"/>
             <Button Content="ОТПРАВИТЬ" Style="{StaticResource ModernButtonSendAnswer}" HorizontalAlignment="Left" Margin="645,0,0,0" VerticalAlignment="Center" Height="38" Width="145" Click="SendCommentAnswer_Click"/>
-            <TextBox x:Name="TxtBox_Comment" AcceptsReturn="True" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxAnswerCommentSend}" VerticalAlignment="Top" Width="800" Height="130"/>
+            <TextBox x:Name="TxtBox_Comment" IsEnabled="True" AcceptsReturn="True" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource ModernTextBoxAnswerCommentSend}" VerticalAlignment="Top" Width="800" Height="130"/>
         </Grid>
 
     </Grid>

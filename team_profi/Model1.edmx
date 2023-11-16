@@ -34,6 +34,7 @@
           <Property Name="TeacherID" Type="int" Nullable="false" />
           <Property Name="Grade" Type="int" Nullable="false" />
           <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReviewedByAdmin" Type="bit" />
         </EntityType>
         <EntityType Name="MediaFiles">
           <Key>
@@ -264,6 +265,7 @@
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Answers" Relationship="Self.FK_Grades_Answers" FromRole="Grades" ToRole="Answers" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Grades_Users" FromRole="Grades" ToRole="Users" />
+          <Property Name="ReviewedByAdmin" Type="Boolean" />
         </EntityType>
         <EntityType Name="MediaFiles">
           <Key>
@@ -494,6 +496,7 @@
           <EntitySetMapping Name="Grades">
             <EntityTypeMapping TypeName="TeamProfiBDModel.Grades">
               <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="ReviewedByAdmin" ColumnName="ReviewedByAdmin" />
                 <ScalarProperty Name="GradeID" ColumnName="GradeID" />
                 <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
                 <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
