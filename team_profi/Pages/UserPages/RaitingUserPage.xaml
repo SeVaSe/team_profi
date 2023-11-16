@@ -21,7 +21,7 @@
                                             Style="{StaticResource ModernTextBlockNumRaiting}" 
                                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Padding="0,0,100,0" />
 
-                                    <Border Style="{StaticResource ModernBorderRaiting}" Margin="50,10,10,10">
+                                    <Border Style="{StaticResource ModernBorderRaiting}" Margin="100,10,10,10">
                                         <Grid>
                                             <!-- Нумерация -->
 

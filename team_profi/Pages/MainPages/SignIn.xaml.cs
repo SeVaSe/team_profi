@@ -29,38 +29,41 @@ namespace team_profi.Pages.MainPages
             InitializeComponent();
         }
 
-
+        // Обработчик нажатия кнопки "Вход"
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = Window.GetWindow(this) as MainWindow;
 
-            using (var db = new TeamProfiBDEntities())
+            using (var db = new TeamProfiBDEntities()) // Использование контекста базы данных
             {
                 var user = db.Users
                     .AsNoTracking()
-                    .FirstOrDefault(u => u.Login == TxtBoxGmail.Text);
+                    .FirstOrDefault(u => u.Login == TxtBoxGmail.Text); // Поиск пользователя по логину
 
-                if (user == null)
+                if (user == null) // Если пользователь не найден
                 {
+                    // Отображение сообщения об ошибке
                     MessageBox.Show("Такого пользователя не существует!", "Не существующий пользователь", MessageBoxButton.OK, MessageBoxImage.Error);
                     TxtBoxGmail.Clear();
                     TxtBoxPasw.Clear();
                 }
-                else if (TxtBoxPasw.Text.Length >= 6)
+                else if (TxtBoxPasw.Text.Length >= 6) // Если пароль длиннее или равен 6 символам
                 {
-                    // Хэшируем введенный пароль
+                    // Хэширование введенного пароля
                     string hashedPassword = PasswordHasherClass.HashPassword(TxtBoxPasw.Text);
 
-                    switch (user.Role)
+                    switch (user.Role) // Проверка роли пользователя
                     {
                         case "admin":
-                            if (user.Password != TxtBoxPasw.Text)
+                            if (user.Password != TxtBoxPasw.Text) // Если пароль не совпадает
                             {
+                                // Отображение предупреждения о неверном пароле
                                 MessageBox.Show("Пароль указан не верно", "Ошибка пароля", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 TxtBoxPasw.Clear();
                             }
                             else
                             {
+                                // Открытие окна для администратора и закрытие текущего окна
                                 WindowOpenClass.OpenWindow<AdminWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
                                 DataDBControlClass.SetName(user.Login);
@@ -69,34 +72,37 @@ namespace team_profi.Pages.MainPages
                             break;
 
                         case "user":
-                            if (user.Password != hashedPassword)
+                            if (user.Password != hashedPassword) // Если хэшированный пароль не совпадает
                             {
+                                // Отображение предупреждения о неверном пароле
                                 MessageBox.Show("Пароль указан не верно", "Ошибка пароля", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 TxtBoxPasw.Clear();
                             }
                             else
                             {
+                                // Открытие окна для пользователя и закрытие текущего окна
                                 WindowOpenClass.OpenWindow<UserWindow>();
                                 LoginInfoAll.ShowLogin(user.Login);
                                 mainWindow.Close();
                             }
                             break;
-                            
                     }
                     TxtBoxGmail.Clear();
                     TxtBoxPasw.Clear();
                 }
-                else if (TxtBoxPasw.Text.Length < 6)
+                else if (TxtBoxPasw.Text.Length < 6) // Если пароль короче 6 символов
                 {
+                    // Отображение сообщения о коротком пароле
                     MessageBox.Show("Вы указали маленький пароль", "Маленький пароль", MessageBoxButton.OK, MessageBoxImage.Warning);
                     TxtBoxPasw.Clear();
                 }
             }
         }
 
+        // Обработчик нажатия кнопки "Забыли пароль?"
         private void ForgotPasword_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new DopPages.Pasword.ForgotPawordPage());
+            NavigationService?.Navigate(new DopPages.Pasword.ForgotPawordPage()); // Навигация на страницу восстановления пароля
         }
     }
 }

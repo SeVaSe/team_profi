@@ -38,6 +38,7 @@ namespace team_profi.Pages.DopPages
             NavigationService.Navigate(new TasksUserPage());
         }
 
+        // Описание задания у Юзера, перед выполнением
         private void ExecuteTask_Click(object sender, RoutedEventArgs e)
         {
             string a = ""; // контроль за тем, чтобы топик был не в КАПСЕ
@@ -57,7 +58,6 @@ namespace team_profi.Pages.DopPages
             }
 
             DataGetIDAssigmentClass.SetIDAssig(a); // отпраляем в класс
-            MessageBox.Show(a);
             NavigationService.Navigate(new DopPages.AssigmentAnswerCreate());
              
         }

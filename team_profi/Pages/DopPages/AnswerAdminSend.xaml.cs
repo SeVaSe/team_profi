@@ -24,24 +24,18 @@ namespace team_profi.Pages.DopPages
     /// </summary>
     public partial class AnswerAdminSend : Page
     {
-        private Answers _answers;
-        private AnswerViewModel answViewModel;
+        private Answers _answers; // Объект Answers - возможно, не используется в этом контексте, можно удалить
+        private AnswerViewModel answViewModel; // Модель ответа, получаемая из другой страницы
 
+        // Конструктор класса, вызывается при создании страницы
         public AnswerAdminSend(AnswerViewModel answerViewModel)
         {
             InitializeComponent();
-            /*TxtBl_AnswerFio.Text = answerViewModel.FIO;
-            TxtBl_AnswerName.Text = answerViewModel.Topic;
-            TxtBl_AnswerText.Text = answerViewModel.AnswerText;
-            TxtBl_AnswerDate.Text = answerViewModel.SubmissionDate;*/
-
             answViewModel = answerViewModel;
-
-            MessageBox.Show(DataDBControlClass.GetName());
-            MessageBox.Show($"{answerViewModel.Topic} {answerViewModel.FIO} {answerViewModel.AnswerText} {answerViewModel.SubmissionDate}");
             FillAnswerDetails();
         }
 
+        // Метод для заполнения подробностей ответа на странице
         private void FillAnswerDetails()
         {
             TxtBl_AnswerFio.Text = answViewModel.FIO;
@@ -51,30 +45,29 @@ namespace team_profi.Pages.DopPages
 
             using (var db = new TeamProfiBDEntities())
             {
+                // Получение ID ответа из базы данных по тексту ответа
                 int answID = db.Answers
                     .Where(a => a.AnswerText == answViewModel.AnswerText)
                     .Select(a => (int)a.AnswerID)
                     .FirstOrDefault();
 
+                // Получение информации о проверке ответа администратором и комментария
                 bool? reviewed = db.Grades
                     .Where(g => g.AnswerID == answID)
                     .Select(g => g.ReviewedByAdmin)
                     .FirstOrDefault();
-
                 string gradeCom = db.Grades
                     .Where(g => g.AnswerID == answID)
                     .Select(g => g.Comment)
                     .FirstOrDefault();
-
                 string gradeAnsw = db.Grades
                     .Where(g => g.AnswerID == answID)
                     .Select(g => g.Grade.ToString())
                     .FirstOrDefault();
 
-                // Устанавливаем значения в поля, независимо от состояния reviewed
-                TxtBox_Grade.Text = gradeAnsw;
-                TxtBox_Comment.Text = gradeCom;
-                MessageBox.Show(reviewed.ToString() );  
+                TxtBox_Grade.Text = gradeAnsw; // Отображение оценки
+                TxtBox_Comment.Text = gradeCom; // Отображение комментария
+
 
                 if (reviewed.HasValue)
                 {
@@ -82,17 +75,12 @@ namespace team_profi.Pages.DopPages
                     {
                         TxtBox_Grade.IsEnabled = false;
                         TxtBox_Comment.IsEnabled = false;
-                        // Другие элементы, которые нужно отключить
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Значение reviewed не определено.");
                 }
             }
         }
 
-
+        // Метод для отправки комментария к ответу
         private void SendCommentAnswer_Click(object sender, RoutedEventArgs e)
         {
             int gradeTxt = Convert.ToInt32(TxtBox_Grade.Text);
@@ -175,7 +163,6 @@ namespace team_profi.Pages.DopPages
                     {
                         MessageBox.Show("Вы уже проверили данное задание и установили оценку.", "Примечание", MessageBoxButton.OK, MessageBoxImage.Warning);
                        
-                            // Другие элементы, которые нужно отключить
                     }
                 }
                 catch
@@ -187,6 +174,7 @@ namespace team_profi.Pages.DopPages
             
         }
 
+        // Метод для отключения элементов управления, если ответ уже проверен
         private void DisableControlsIfReviewed()
         {
             using (var db = new TeamProfiBDEntities())
@@ -205,7 +193,6 @@ namespace team_profi.Pages.DopPages
                 {
                     TxtBox_Grade.IsEnabled = false;
                     TxtBox_Comment.IsEnabled = false;
-                    // Другие элементы, которые нужно отключить
                 }
             }
         }

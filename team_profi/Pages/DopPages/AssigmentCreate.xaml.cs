@@ -37,6 +37,7 @@ namespace team_profi.Pages.DopPages
             NavigationService.Navigate(new TasksAdminPage());
         }
 
+        // Создание новго задания
         private void SendTask_Click(object sender, RoutedEventArgs e)
         {
             string nameAdmin = DataDBControlClass.GetName();
@@ -67,18 +68,9 @@ namespace team_profi.Pages.DopPages
                 {
                     MessageBox.Show("Данного учителя нет, стоит обратиться в тех-поддержку и решить данный вопрос", "Сбой системы!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-
-                
             }
-            
-
-            
-
-            
-
             TxtBox_Topic.Clear();
             TxtBox_Descr.Clear();
-
         }
     }
 }

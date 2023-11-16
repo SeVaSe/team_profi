@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace team_profi.Classes
 {
+    // паттерн MVVM (Model-View-ViewModel) используется для отображения информации о рейтинге студентов.
     public class StudentRatingViewModel
     {
         public int Rank { get; set; }

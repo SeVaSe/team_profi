@@ -26,24 +26,25 @@ namespace team_profi.Pages.UserPages
         public MainUserPage()
         {
             InitializeComponent();
-            this.Loaded += TitleNameUser;
+            this.Loaded += TitleNameUser; // Добавление обработчика события при загрузке страницы
         }
 
+        // Метод для отображения информации о пользователе при загрузке страницы
         private void TitleNameUser(object sender, RoutedEventArgs e)
         {
-            // Получаем логин из LoginInfoAll
+            // Получение логина пользователя из LoginInfoAll
             string login = LoginInfoAll.GetLogin();
 
-            using (var db = new TeamProfiBDEntities())
+            using (var db = new TeamProfiBDEntities()) // Использование контекста базы данных
             {
                 var users = db.Users
                     .AsNoTracking()
                     .Where(u => u.Login == login)
-                    .ToList(); // Получаем список всех пользователей с указанным логином
+                    .ToList(); // Получение списка всех пользователей с указанным логином
 
-                if (users.Any())
+                if (users.Any()) // Если найдены пользователи с указанным логином
                 {
-                    foreach (var user in users)
+                    foreach (var user in users) // Отображение информации о каждом найденном пользователе
                     {
                         TxtBl_NameUser.Text += $"{user.LastName} {user.FirstName} {user.Otchestvo}\n";
                         TxtBl_Gmailtxt.Text = user.Login;
@@ -51,35 +52,39 @@ namespace team_profi.Pages.UserPages
                         TxtBl_TeachHousetxt.Text = user.College;
                         TxtBl_Roletxt.Text = user.RoleUsers;
                     }
-                    DataGetIDStudentClass.SetIDStud(TxtBl_Gmailtxt.Text); // заносим в контроль за пользователем, теперь его логин отслеживаем в профиле 
+
+                    // Занесение логина пользователя в контроль за пользователем для отслеживания в профиле
+                    DataGetIDStudentClass.SetIDStud(TxtBl_Gmailtxt.Text);
                 }
                 else
                 {
-                    TxtBl_NameUser.Text = "Чет за херня ОПЯТЬ БАЗА БЛЯТЬ УПАЛА";
+                    TxtBl_NameUser.Text = "Чет за херня ОПЯТЬ БАЗА БЛЯТЬ УПАЛА"; // Отображение сообщения об ошибке
                 }
             }
         }
 
+        // Обработчик события клика на кнопке выхода из аккаунта
         private void BtnExitAcc_Click(object sender, RoutedEventArgs e)
         {
+            // Сброс логина и ID студента и задания
             LoginInfoAll.ShowLogin("net");
             DataGetIDStudentClass.SetIDStud("noap");
             DataGetIDAssigmentClass.SetIDAssig("noap");
 
+            // Получение главного окна пользователя
             UserWindow main = Window.GetWindow(this) as UserWindow;
 
-            if (main != null)
+            if (main != null) // Если главное окно не пустое
             {
-                
+                // Открытие нового главного окна и очистка полей информации о пользователе
                 WindowOpenClass.OpenWindow<MainWindow>();
                 TxtBl_NameUser.Text = "";
                 TxtBl_Gmailtxt.Text = "";
                 TxtBl_DateYearstxt.Text = "";
                 TxtBl_TeachHousetxt.Text = "";
                 TxtBl_Roletxt.Text = "";
-                main.Close();
+                main.Close(); // Закрытие текущего окна
             }
-
         }
     }
 }

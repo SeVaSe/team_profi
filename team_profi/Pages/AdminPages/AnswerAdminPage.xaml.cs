@@ -22,60 +22,66 @@ namespace team_profi.Pages.AdminPages
     /// </summary>
     public partial class AnswerAdminPage : Page
     {
-        // класс по созданию временной програмной таблицы, для отображения данных
+        // Класс, представляющий модель представления ответа, используемый для временной программной таблицы
         public class AnswerViewModel
         {
-            public string Topic { get; set; }
-            public string FIO { get; set; }
-            public string AnswerText { get; set; }
-            public string SubmissionDate { get; set; }
+            public string Topic { get; set; } // Тема ответа
+            public string FIO { get; set; } // ФИО студента, отвечающего на задание
+            public string AnswerText { get; set; } // Текст ответа
+            public string SubmissionDate { get; set; } // Дата предоставления ответа
         }
 
-        public ObservableCollection<AnswerViewModel> answers;
+        public ObservableCollection<AnswerViewModel> answers; // Коллекция для хранения ответов
 
         public AnswerAdminPage()
         {
             InitializeComponent();
-            answers = new ObservableCollection<AnswerViewModel>();
-            LoadAnswers();
+            answers = new ObservableCollection<AnswerViewModel>(); // Инициализация коллекции ответов
+            LoadAnswers(); // Загрузка ответов из базы данных
         }
 
+        // Метод для загрузки ответов из базы данных и заполнения коллекции
         private void LoadAnswers()
         {
-            using (var db = new TeamProfiBDEntities())
+            using (var db = new TeamProfiBDEntities()) // Использование контекста базы данных
             {
-                var answersFromDB = db.Answers.ToList();
+                var answersFromDB = db.Answers.ToList(); // Получение списка ответов из базы данных
                 foreach (var answer in answersFromDB)
                 {
+                    // Получение соответствующего задания и пользователя из базы данных
                     var assignment = db.Assignments.FirstOrDefault(a => a.AssigID == answer.AssignmentID);
                     var user = db.Users.FirstOrDefault(u => u.UserID == answer.StudentID);
 
+                    // Проверка наличия задания и пользователя в базе данных
                     if (assignment != null && user != null)
                     {
+                        // Добавление нового элемента AnswerViewModel в коллекцию answers
                         answers.Add(new AnswerViewModel
                         {
-                            Topic = assignment.Topic.ToUpper(),
-                            FIO = $"{user.LastName.ToUpper()} {user.FirstName.ToUpper()} {user.Otchestvo.ToUpper()}",
-                            AnswerText = answer.AnswerText,
-                            SubmissionDate = answer.SubmissionDate
+                            Topic = assignment.Topic.ToUpper(), // Установка темы ответа в верхнем регистре
+                            FIO = $"{user.LastName.ToUpper()} {user.FirstName.ToUpper()} {user.Otchestvo.ToUpper()}", // Сбор ФИО студента
+                            AnswerText = answer.AnswerText, // Установка текста ответа
+                            SubmissionDate = answer.SubmissionDate // Установка даты предоставления ответа
                         });
                     }
                 }
 
-                DataGridUser.ItemsSource = answers;
+                DataGridUser.ItemsSource = answers; // Привязка коллекции к элементу управления DataGrid
             }
         }
 
-
+        // Обработчик события клика на элементе Border
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            // Проверка отправителя события и получение данных модели ответа AnswerViewModel
             if (sender is Border border && border.DataContext is AnswerViewModel answers)
             {
-                //DopPages.AssignmentDescriptionPage descriptionPage = new DopPages.AssignmentDescriptionPage(assignment);
+                // Создание новой страницы и передача данных ответа для отображения
                 DopPages.AnswerAdminSend answerSend = new DopPages.AnswerAdminSend(answers);
-                NavigationService.Navigate(answerSend);
+                NavigationService.Navigate(answerSend); // Переход на новую страницу
             }
         }
+
 
 
     }

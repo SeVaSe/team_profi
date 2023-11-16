@@ -22,13 +22,30 @@ namespace team_profi.Pages.DopPages
     /// </summary>
     public partial class AssigmentAnswerCreate : Page
     {
+
         public AssigmentAnswerCreate()
         {
             InitializeComponent();
             DateTime dateTime = DateTime.Now;
+            string nameAssig = DataGetIDAssigmentClass.GetName();
+
+
             TxtBl_DateTask.Text = dateTime.ToString("dd.MM.yyyy");
+
+            using (var db = new TeamProfiBDEntities())
+            {
+                var assigs = db.Assignments
+                        .AsNoTracking()
+                        .Where(u => u.Topic == nameAssig)
+                        .Select(g => g.Topic)
+                        .FirstOrDefault();
+
+                TxtBl_NameTask.Text = assigs;
+            }
+                
         }
 
+        // Отправка Юзером ответа на задание
         private void SendTask_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -41,33 +58,26 @@ namespace team_profi.Pages.DopPages
 
                 using (var db = new TeamProfiBDEntities())
                 {
-                    MessageBox.Show("0");
                     var users = db.Users
                         .AsNoTracking()
                         .Where(u => u.Login == nameStud)
                         .ToList();
-                    MessageBox.Show("1");
                     foreach (var user in users)
                     {
                         studID = user.UserID;
                     }
 
-                    MessageBox.Show("2");
                     var assigs = db.Assignments
                         .AsNoTracking()
                         .Where(u => u.Topic == nameAssig)
                         .ToList();
-                    MessageBox.Show(nameAssig);
+
                     foreach (var assig in assigs)
                     {
                         assigID = assig.AssigID;
                     }
-                    MessageBox.Show("3");
-
-
-
                 }
-                MessageBox.Show("4");
+
                 var answerItem = new Answers()
                 {
                     AssignmentID = assigID,
@@ -75,9 +85,7 @@ namespace team_profi.Pages.DopPages
                     AnswerText = TxtBox_Descr.Text,
                     SubmissionDate = TxtBl_DateTask.Text
                 };
-                MessageBox.Show(studID.ToString());
-                MessageBox.Show(assigID.ToString());
-                MessageBox.Show("5");
+                
                 using (var db = new TeamProfiBDEntities())
                 {
                     db.Answers.Add(answerItem);
@@ -90,7 +98,6 @@ namespace team_profi.Pages.DopPages
             {
                 MessageBox.Show($"ошибка: {ex.Message}. Подробности: {ex.InnerException?.Message}");
             }
-
         }
 
         private void BackOut_Click(object sender, RoutedEventArgs e)

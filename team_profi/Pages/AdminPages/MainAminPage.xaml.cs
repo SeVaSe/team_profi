@@ -25,24 +25,26 @@ namespace team_profi.Pages.AdminPages
         public MainAminPage()
         {
             InitializeComponent();
-            this.Loaded += TitleNameUser;
+            this.Loaded += TitleNameUser; // При загрузке страницы добавляется обработчик события для отображения информации о пользователе
         }
 
+        // Метод для отображения информации о пользователе при загрузке страницы
         private void TitleNameUser(object sender, RoutedEventArgs e)
         {
-            // Получаем логин из LoginInfoAll
+            // Получение логина пользователя из LoginInfoAll
             string login = LoginInfoAll.GetLogin();
 
             using (var db = new TeamProfiBDEntities())
             {
+                // Получение списка пользователей с указанным логином из базы данных
                 var users = db.Users
                     .AsNoTracking()
                     .Where(u => u.Login == login)
-                    .ToList(); // Получаем список всех пользователей с указанным логином
+                    .ToList();
 
-                if (users.Any())
+                if (users.Any()) // Если найдены пользователи с указанным логином
                 {
-                    
+                    // Отображение информации о каждом найденном пользователе
                     foreach (var user in users)
                     {
                         TxtBl_NameUser.Text += $"{user.LastName} {user.FirstName} {user.Otchestvo}\n";
@@ -51,35 +53,37 @@ namespace team_profi.Pages.AdminPages
                         TxtBl_TeachHousetxt.Text = user.College;
                         TxtBl_Roletxt.Text = user.RoleUsers;
                     }
-                    
-                    
-                    
                 }
-                else
+                else // Если пользователь не найден в базе данных
                 {
-                    TxtBl_NameUser.Text = "Чет за херня ОПЯТЬ БАЗА БЛЯТЬ УПАЛА";
+                    TxtBl_NameUser.Text = "Чет за херня ОПЯТЬ БАЗА БЛЯТЬ УПАЛА"; // Отображение сообщения об ошибке
                 }
             }
         }
 
+        // Обработчик события для выхода из аккаунта
         private void BtnExitAcc_Click(object sender, RoutedEventArgs e)
         {
+            // Сброс логина и имени пользователя
             LoginInfoAll.ShowLogin("net");
             DataDBControlClass.SetName("noap");
 
+            // Получение главного окна
             AdminWindow main = Window.GetWindow(this) as AdminWindow;
 
-            if (main != null)
+            if (main != null) // Если главное окно не пустое
             {
-                WindowOpenClass.OpenWindow<MainWindow>();
+                WindowOpenClass.OpenWindow<MainWindow>(); // Открытие нового главного окна
+                                                          // Очистка полей информации о пользователе
                 TxtBl_NameUser.Text = "";
                 TxtBl_Gmailtxt.Text = "";
                 TxtBl_DateYearstxt.Text = "";
                 TxtBl_TeachHousetxt.Text = "";
                 TxtBl_Roletxt.Text = "";
 
-                main.Close();
+                main.Close(); // Закрытие текущего окна
             }
         }
     }
+
 }

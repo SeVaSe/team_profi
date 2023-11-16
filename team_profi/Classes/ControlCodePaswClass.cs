@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace team_profi.Classes
 {
+    // класс для отслежки кода восстановления
     public class ControlCodePaswClass
     {
         private static string codePasw = "noap";

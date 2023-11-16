@@ -22,49 +22,47 @@ namespace team_profi.Pages.UserPages
     /// </summary>
     public partial class AnswerUserPage : Page
     {
+        // Внутренний класс, представляющий модель представления для ответов преподавателя
         public class AnswerTeachViewModel
         {
-            public string Topic { get; set; }
-            public int StudentID { get; set; }
-            public string AnswerText { get; set; }
-            public string SubmissionDate { get; set; }
-            public string Grade { get; set; }
-            public string Comment { get; set; }
-
+            public string Topic { get; set; } // Тема задания
+            public int StudentID { get; set; } // ID студента
+            public string AnswerText { get; set; } // Текст ответа
+            public string SubmissionDate { get; set; } // Дата предоставления ответа
+            public string Grade { get; set; } // Оценка
+            public string Comment { get; set; } // Комментарий к оценке
         }
 
-
-        private ObservableCollection<AnswerTeachViewModel> answers;
+        private ObservableCollection<AnswerTeachViewModel> answers; // Коллекция для хранения ответов студента
 
         public AnswerUserPage()
         {
             InitializeComponent();
 
-            answers = new ObservableCollection<AnswerTeachViewModel>();
-            string name = DataGetIDStudentClass.GetName();
+            answers = new ObservableCollection<AnswerTeachViewModel>(); // Инициализация коллекции
+            string name = DataGetIDStudentClass.GetName(); // Получение имени студента
 
-            using (var db = new TeamProfiBDEntities())
+            using (var db = new TeamProfiBDEntities()) // Использование контекста базы данных
             {
                 int studentID = db.Users
                     .Where(u => u.Login == name)
                     .Select(u => u.UserID)
-                    .FirstOrDefault();
+                    .FirstOrDefault(); // Получение ID студента по его имени
 
-                // Теперь фильтруем задания только для текущего студента
+                // Получение ответов студента из базы данных
                 var answersFromDb = db.Answers
                     .Where(a => a.StudentID == studentID)
                     .ToList();
 
-
-                foreach (var answer in answersFromDb)
+                foreach (var answer in answersFromDb) // Итерация по ответам студента
                 {
-                    // Перемещаем определение assigTopic сюда, чтобы оно было уникальным для каждой записи
+                    // Получение темы задания по ID из таблицы Assignments
                     string assigTopic = db.Assignments
                         .Where(a => a.AssigID == answer.AssignmentID)
                         .Select(a => a.Topic)
                         .FirstOrDefault();
 
-                    // Проверяем наличие оценки в таблице Grades
+                    // Получение оценки и комментария к оценке из таблицы Grades
                     var grade = db.Grades
                         .Where(g => g.AnswerID == answer.AnswerID)
                         .Select(g => g.Grade)
@@ -75,7 +73,7 @@ namespace team_profi.Pages.UserPages
                         .Select(g => g.Comment)
                         .FirstOrDefault();
 
-                    // Создаем AnswerTeachViewModel и устанавливаем оценку или текст "Нет оценки"
+                    // Создание модели представления AnswerTeachViewModel и добавление в коллекцию
                     answers.Add(new AnswerTeachViewModel
                     {
                         Topic = assigTopic,
@@ -84,28 +82,22 @@ namespace team_profi.Pages.UserPages
                         SubmissionDate = answer.SubmissionDate,
                         Grade = (grade != 0) ? grade.ToString() + "\nпроверен" : "-\nотправлен",
                         Comment = comm
-
-                        /*Grade = (grade != 0) ? grade.ToString() + "\nПроверен" : "-\nОтправлен"*/
                     });
                 }
 
-                DataGridUser.ItemsSource = answers;
+                DataGridUser.ItemsSource = answers; // Привязка коллекции к элементу управления DataGrid
             }
         }
 
-
+        // Обработчик события клика на элементе Border
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            // Предположим, что вы определяете переменную gr где-то в этом блоке кода или в методе
-            Grades gr = new Grades(); // Замените GetGrades() на то, как у вас определена переменная gr
-
             if (sender is Border border && border.DataContext is AnswerTeachViewModel viewModel)
             {
+                // Создание новой страницы с информацией о конкретном ответе и переход на нее
                 DopPages.AnswerUserInfoPage descriptionPage = new DopPages.AnswerUserInfoPage(viewModel);
                 NavigationService.Navigate(descriptionPage);
             }
-
-
         }
     }
 }

@@ -29,7 +29,7 @@ namespace team_profi.Pages.DopPages
 
             TxtBl_AnswerDate.Text = viewModel.SubmissionDate;
             TxtBl_AnswerName.Text = viewModel.Topic;
-            TxtBox_Grade.Text = viewModel.Grade.ToString();
+            TxtBox_Grade.Text = viewModel.Grade.ToString().Substring(0, 1);
             TxtBl_AnswerText.Text = viewModel.AnswerText;
             TxtBL_Comment.Text = viewModel?.Comment ?? "Вашу работу пока не проверили и не прокомментировали";
 
